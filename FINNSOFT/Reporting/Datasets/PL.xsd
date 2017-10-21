@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PL" msprop:Generator_UserTableName="PL" msprop:Generator_RowDeletedName="PLRowDeleted" msprop:Generator_TableClassName="PLDataTable" msprop:Generator_RowChangedName="PLRowChanged" msprop:Generator_RowClassName="PLRow" msprop:Generator_RowChangingName="PLRowChanging" msprop:Generator_RowEvArgName="PLRowChangeEvent" msprop:Generator_RowEvHandlerName="PLRowChangeEventHandler" msprop:Generator_TablePropName="PL" msprop:Generator_TableVarName="tablePL" msprop:Generator_RowDeletingName="PLRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DrLedger" msprop:Generator_UserColumnName="DrLedger" msprop:Generator_ColumnPropNameInRow="DrLedger" msprop:Generator_ColumnVarNameInTable="columnDrLedger" msprop:Generator_ColumnPropNameInTable="DrLedgerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DrAmount" msprop:Generator_UserColumnName="DrAmount" msprop:Generator_ColumnPropNameInRow="DrAmount" msprop:Generator_ColumnVarNameInTable="columnDrAmount" msprop:Generator_ColumnPropNameInTable="DrAmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="CrLedger" msprop:Generator_UserColumnName="CrLedger" msprop:Generator_ColumnPropNameInRow="CrLedger" msprop:Generator_ColumnVarNameInTable="columnCrLedger" msprop:Generator_ColumnPropNameInTable="CrLedgerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CrAmount" msprop:Generator_UserColumnName="CrAmount" msprop:Generator_ColumnPropNameInRow="CrAmount" msprop:Generator_ColumnVarNameInTable="columnCrAmount" msprop:Generator_ColumnPropNameInTable="CrAmountColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

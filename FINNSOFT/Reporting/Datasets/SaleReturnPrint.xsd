@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SaleReturnPrint" targetNamespace="http://tempuri.org/SaleReturnPrint.xsd" xmlns:mstns="http://tempuri.org/SaleReturnPrint.xsd" xmlns="http://tempuri.org/SaleReturnPrint.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SaleReturnPrint" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="SaleReturnPrint" msprop:Generator_UserDSName="SaleReturnPrint" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="slret" msprop:Generator_UserTableName="slret" msprop:Generator_RowDeletedName="slretRowDeleted" msprop:Generator_TableClassName="slretDataTable" msprop:Generator_RowChangedName="slretRowChanged" msprop:Generator_RowClassName="slretRow" msprop:Generator_RowChangingName="slretRowChanging" msprop:Generator_RowEvArgName="slretRowChangeEvent" msprop:Generator_RowEvHandlerName="slretRowChangeEventHandler" msprop:Generator_TablePropName="slret" msprop:Generator_TableVarName="tableslret" msprop:Generator_RowDeletingName="slretRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RmNo" msprop:Generator_UserColumnName="RmNo" msprop:Generator_ColumnPropNameInRow="RmNo" msprop:Generator_ColumnVarNameInTable="columnRmNo" msprop:Generator_ColumnPropNameInTable="RmNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="RmDate" msprop:Generator_UserColumnName="RmDate" msprop:Generator_ColumnPropNameInRow="RmDate" msprop:Generator_ColumnVarNameInTable="columnRmDate" msprop:Generator_ColumnPropNameInTable="RmDateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CashMemo" msprop:Generator_UserColumnName="CashMemo" msprop:Generator_ColumnPropNameInRow="CashMemo" msprop:Generator_ColumnVarNameInTable="columnCashMemo" msprop:Generator_ColumnPropNameInTable="CashMemoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CMDate" msprop:Generator_UserColumnName="CMDate" msprop:Generator_ColumnPropNameInRow="CMDate" msprop:Generator_ColumnVarNameInTable="columnCMDate" msprop:Generator_ColumnPropNameInTable="CMDateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Item" msprop:Generator_UserColumnName="Item" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInTable="ItemColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BatchNo" msprop:Generator_UserColumnName="BatchNo" msprop:Generator_ColumnPropNameInRow="BatchNo" msprop:Generator_ColumnVarNameInTable="columnBatchNo" msprop:Generator_ColumnPropNameInTable="BatchNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="expiry" msprop:Generator_UserColumnName="expiry" msprop:Generator_ColumnPropNameInRow="expiry" msprop:Generator_ColumnVarNameInTable="columnexpiry" msprop:Generator_ColumnPropNameInTable="expiryColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Mrp" msprop:Generator_UserColumnName="Mrp" msprop:Generator_ColumnPropNameInRow="Mrp" msprop:Generator_ColumnVarNameInTable="columnMrp" msprop:Generator_ColumnPropNameInTable="MrpColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="value" msprop:Generator_UserColumnName="value" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="saleamt" msprop:Generator_UserColumnName="saleamt" msprop:Generator_ColumnPropNameInRow="saleamt" msprop:Generator_ColumnVarNameInTable="columnsaleamt" msprop:Generator_ColumnPropNameInTable="saleamtColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="rebet" msprop:Generator_UserColumnName="rebet" msprop:Generator_ColumnPropNameInRow="rebet" msprop:Generator_ColumnVarNameInTable="columnrebet" msprop:Generator_ColumnPropNameInTable="rebetColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="adjustment" msprop:Generator_UserColumnName="adjustment" msprop:Generator_ColumnPropNameInRow="adjustment" msprop:Generator_ColumnVarNameInTable="columnadjustment" msprop:Generator_ColumnPropNameInTable="adjustmentColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="netreturn" msprop:Generator_UserColumnName="netreturn" msprop:Generator_ColumnPropNameInRow="netreturn" msprop:Generator_ColumnVarNameInTable="columnnetreturn" msprop:Generator_ColumnPropNameInTable="netreturnColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Regno" msprop:Generator_UserColumnName="Regno" msprop:Generator_ColumnPropNameInRow="Regno" msprop:Generator_ColumnVarNameInTable="columnRegno" msprop:Generator_ColumnPropNameInTable="RegnoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

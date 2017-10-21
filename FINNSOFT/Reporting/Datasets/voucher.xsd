@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="voucher" targetNamespace="http://tempuri.org/voucher.xsd" xmlns:mstns="http://tempuri.org/voucher.xsd" xmlns="http://tempuri.org/voucher.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="voucher" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="voucher" msprop:Generator_DataSetName="voucher" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="voucher" msprop:Generator_UserTableName="voucher" msprop:Generator_RowDeletedName="voucherRowDeleted" msprop:Generator_RowChangedName="voucherRowChanged" msprop:Generator_RowClassName="voucherRow" msprop:Generator_RowChangingName="voucherRowChanging" msprop:Generator_RowEvArgName="voucherRowChangeEvent" msprop:Generator_RowEvHandlerName="voucherRowChangeEventHandler" msprop:Generator_TableClassName="voucherDataTable" msprop:Generator_TableVarName="tablevoucher" msprop:Generator_RowDeletingName="voucherRowDeleting" msprop:Generator_TablePropName="_voucher">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vno" msprop:Generator_UserColumnName="vno" msprop:Generator_ColumnVarNameInTable="columnvno" msprop:Generator_ColumnPropNameInRow="vno" msprop:Generator_ColumnPropNameInTable="vnoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="vdt" msprop:Generator_UserColumnName="vdt" msprop:Generator_ColumnVarNameInTable="columnvdt" msprop:Generator_ColumnPropNameInRow="vdt" msprop:Generator_ColumnPropNameInTable="vdtColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TRANTYPE" msprop:Generator_UserColumnName="TRANTYPE" msprop:Generator_ColumnVarNameInTable="columnTRANTYPE" msprop:Generator_ColumnPropNameInRow="TRANTYPE" msprop:Generator_ColumnPropNameInTable="TRANTYPEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CAMT" msprop:Generator_UserColumnName="CAMT" msprop:Generator_ColumnVarNameInTable="columnCAMT" msprop:Generator_ColumnPropNameInRow="CAMT" msprop:Generator_ColumnPropNameInTable="CAMTColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="AMTTYPE" msprop:Generator_UserColumnName="AMTTYPE" msprop:Generator_ColumnVarNameInTable="columnAMTTYPE" msprop:Generator_ColumnPropNameInRow="AMTTYPE" msprop:Generator_ColumnPropNameInTable="AMTTYPEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VName" msprop:Generator_UserColumnName="VName" msprop:Generator_ColumnVarNameInTable="columnVName" msprop:Generator_ColumnPropNameInRow="VName" msprop:Generator_ColumnPropNameInTable="VNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DAMT" msprop:Generator_UserColumnName="DAMT" msprop:Generator_ColumnVarNameInTable="columnDAMT" msprop:Generator_ColumnPropNameInRow="DAMT" msprop:Generator_ColumnPropNameInTable="DAMTColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="InventoryVNo" msprop:Generator_UserColumnName="InventoryVNo" msprop:Generator_ColumnPropNameInRow="InventoryVNo" msprop:Generator_ColumnVarNameInTable="columnInventoryVNo" msprop:Generator_ColumnPropNameInTable="InventoryVNoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

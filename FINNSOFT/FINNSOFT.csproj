@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8A59710-DEA0-4180-954E-827FC596D961}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FINNSOFT</RootNamespace>
+    <AssemblyName>FINNSOFT</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>FINNSOFT.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <HockeyAppResourceId>1375e8fded134e7cb620cd2777a8a0c6</HockeyAppResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>USBDrive.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.8\managed\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.VSDesigner, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.8\managed\CrystalDecisions.VSDesigner.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAL\clsGLBAL.cs" />
+    <Compile Include="BAL\clsSLBAL.cs" />
+    <Compile Include="BO\clsGLBO.cs" />
+    <Compile Include="BO\clsSLBO.cs" />
+    <Compile Include="DAL\clsGLDAL.cs" />
+    <Compile Include="DAL\clsSLDAL.cs" />
+    <Compile Include="frmFinyr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFinyr.Designer.cs">
+      <DependentUpon>frmFinyr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmBackupRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmBackupRestore.Designer.cs">
+      <DependentUpon>frmBackupRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCreateUser.Designer.cs">
+      <DependentUpon>frmCreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\clsConnection.cs" />
+    <Compile Include="Global\clsVar.cs" />
+    <Compile Include="Global\Connection.cs" />
+    <Compile Include="Global\Global.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\Datasets\Branch.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Branch.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Trial.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trial.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\frmBalan.designer.cs">
+      <DependentUpon>frmBalan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCashbook.Designer.cs">
+      <DependentUpon>frmCashbook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCollectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCollectionView.Designer.cs">
+      <DependentUpon>frmCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmDaybook.designer.cs">
+      <DependentUpon>frmDaybook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmLedger.Designer.cs">
+      <DependentUpon>frmLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmLedgerList.Designer.cs">
+      <DependentUpon>frmLedgerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmPL.designer.cs">
+      <DependentUpon>frmPL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmPrint.designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmReportViewer.designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmTrial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmTrial.designer.cs">
+      <DependentUpon>frmTrial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmVoucher.designer.cs">
+      <DependentUpon>frmVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmVoucherPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmVoucherPrint.Designer.cs">
+      <DependentUpon>FrmVoucherPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmVoucherReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmVoucherReport.designer.cs">
+      <DependentUpon>frmVoucherReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frm_Branch_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frm_Branch_Selection.designer.cs">
+      <DependentUpon>frm_Branch_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frm_Details_Ledger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frm_Details_Ledger.designer.cs">
+      <DependentUpon>frm_Details_Ledger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="voucherGridview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="voucherGridview.designer.cs">
+      <DependentUpon>voucherGridview.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmFinyr.resx">
+      <DependentUpon>frmFinyr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptBalan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptDayBook.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDayBook.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptledgPrint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptledgPrint.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\RptPartPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPartPayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\rptPL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Trial.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Trial.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmBackupRestore.resx">
+      <DependentUpon>frmBackupRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmBalan.resx">
+      <DependentUpon>frmBalan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCashbook.resx">
+      <DependentUpon>frmCashbook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCollectionView.resx">
+      <DependentUpon>frmCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCreateUser.resx">
+      <DependentUpon>frmCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmGLMast.resx">
+      <DependentUpon>frmGLMast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmLedger.resx">
+      <DependentUpon>frmLedger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmLedgerList.resx">
+      <DependentUpon>frmLedgerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmLedgerVoucher.resx">
+      <DependentUpon>frmLedgerVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\frmPL.resx">
+      <DependentUpon>frmPL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSLMast.resx">
+      <DependentUpon>frmSLMast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmTrial.resx">
+      <DependentUpon>frmTrial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmVoucher.resx">
+      <DependentUpon>frmVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmVoucherPrint.resx">
+      <DependentUpon>FrmVoucherPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmVoucherReport.resx">
+      <DependentUpon>frmVoucherReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frm_Branch_Selection.resx">
+      <DependentUpon>frm_Branch_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frm_Details_Ledger.resx">
+      <DependentUpon>frm_Details_Ledger.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reporting\Datasets\daybook.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>daybook.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\LedgPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\PL.cs">
+      <DependentUpon>PL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\PL.designer.cs">
+      <DependentUpon>PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\Trial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trial.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\voucher.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>voucher.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\rptBalan.cs">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBalan.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\rptDayBook.cs">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDayBook.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\rptledgPrint.cs">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptledgPrint.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\RptPartPayment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPartPayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\rptPL.cs">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPL.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmBalan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCashbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmDaybook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmGLMast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmGLMast.designer.cs">
+      <DependentUpon>frmGLMast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmLedgerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmLedgerVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmLedgerVoucher.Designer.cs">
+      <DependentUpon>frmLedgerVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmPL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSLMast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSLMast.Designer.cs">
+      <DependentUpon>frmSLMast.cs</DependentUpon>
+    </Compile>
+    <None Include="Reporting\Datasets\Branch.xsc">
+      <DependentUpon>Branch.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\Branch.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Branch.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Datasets\Branch.xss">
+      <DependentUpon>Branch.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\daybook.xsc">
+      <DependentUpon>daybook.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\daybook.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>daybook.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\Datasets\daybook.xss">
+      <DependentUpon>daybook.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\LedgPrint.xsc">
+      <DependentUpon>LedgPrint.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\LedgPrint.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LedgPrint.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\Datasets\LedgPrint.xss">
+      <DependentUpon>LedgPrint.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\PL.xsc">
+      <DependentUpon>PL.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\PL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PL1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\Datasets\PL.xss">
+      <DependentUpon>PL.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\Trial.xsc">
+      <DependentUpon>Trial.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\Trial.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Trial.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\Datasets\Trial.xss">
+      <DependentUpon>Trial.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\Datasets\voucher.xsc">
+      <DependentUpon>voucher.xsd</DependentUpon>
+    </None>
+    <None Include="Reporting\Datasets\voucher.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>voucher.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reporting\Datasets\voucher.xss">
+      <DependentUpon>voucher.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CRDESIGNERLib">
+      <Guid>{C0AA5023-C763-4A4B-AFED-ADCF78D6C08B}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalActiveXReportViewerLib13">
+      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerExportLib">
+      <Guid>{5C21A516-C6AC-42F2-A7B7-846FFE1B122A}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UtilisateurSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DossierJeuxSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProgrammesSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nxviewSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CorbeillevideSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FlashGetSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bloc Notes SZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7092.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rich_text_format.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MyDocumentFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jamembo-folder-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdamultiSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entry.png" />
+    <None Include="Resources\RedemSZ.png" />
+    <None Include="Resources\CleUsbSZ.png" />
+    <None Include="Resources\WindowsMPSZ.png" />
+    <None Include="Resources\imprimantcleanSZe.png" />
+    <None Include="Resources\bitcometSZ.png" />
+    <None Include="Resources\BitdefenderSZ.png" />
+    <None Include="Resources\ExcelSZ.png" />
+    <None Include="Resources\User.png" />
+    <None Include="Resources\Sign In.png" />
+    <None Include="Resources\search.png" />
+    <Content Include="USBDrive.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
