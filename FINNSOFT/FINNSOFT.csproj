@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FINNSOFT</RootNamespace>
     <AssemblyName>FINNSOFT</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>FINNSOFT.Program</StartupObject>
     <FileUpgradeFlags>
@@ -34,6 +34,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <HockeyAppResourceId>1375e8fded134e7cb620cd2777a8a0c6</HockeyAppResourceId>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,6 +92,7 @@
     </Reference>
     <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -101,6 +103,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -120,11 +123,22 @@
     <Compile Include="BO\clsSLBO.cs" />
     <Compile Include="DAL\clsGLDAL.cs" />
     <Compile Include="DAL\clsSLDAL.cs" />
+    <Compile Include="DashBoardMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoardMenu.Designer.cs">
+      <DependentUpon>DashBoardMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFinyr.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFinyr.Designer.cs">
       <DependentUpon>frmFinyr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\PL1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PL.xsd</DependentUpon>
     </Compile>
     <Compile Include="UI\frmBackupRestore.cs">
       <SubType>Form</SubType>
@@ -239,6 +253,9 @@
     <Compile Include="voucherGridview.designer.cs">
       <DependentUpon>voucherGridview.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DashBoardMenu.resx">
+      <DependentUpon>DashBoardMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFinyr.resx">
       <DependentUpon>frmFinyr.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,9 +374,6 @@
     </Compile>
     <Compile Include="Reporting\Datasets\PL.cs">
       <DependentUpon>PL.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reporting\Datasets\PL.designer.cs">
-      <DependentUpon>PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\Datasets\Trial.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -567,6 +581,24 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="MSChart20Lib">
+      <Guid>{65E121D4-0C60-11D2-A9FC-0000F8754DA1}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MSDATASRC">
+      <Guid>{7C0FFAB0-CD84-11D0-949A-00A0C91110ED}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -647,6 +679,9 @@
     <None Include="Resources\Sign In.png" />
     <None Include="Resources\search.png" />
     <Content Include="USBDrive.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

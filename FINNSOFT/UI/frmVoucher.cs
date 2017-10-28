@@ -135,7 +135,7 @@ namespace FINNSOFT
             }
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
@@ -248,7 +248,7 @@ namespace FINNSOFT
 
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    if (dataGridView1.Rows[i].Cells["Debit"].Value != null)
+                    if (dataGridView1.Rows[i].Cells["Debit"].Value != null && dataGridView1.Rows[i].Cells["Credit"].Value == null)
                     {
                         if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "By")
                         {
@@ -258,13 +258,30 @@ namespace FINNSOFT
 
                     }
 
-                        if (dataGridView1.Rows[i].Cells["Credit"].Value != null)
+                    if (dataGridView1.Rows[i].Cells["Credit"].Value != null && dataGridView1.Rows[i].Cells["Debit"].Value == null)
                         {
                         if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "To")
                         {
                             totto += Convert.ToDouble(dataGridView1.Rows[i].Cells["Credit"].Value);
                             lbltotcr.Text = Convert.ToString(Math.Round(totto, 2));
                         }
+                    }
+
+                    if (dataGridView1.Rows[i].Cells["Debit"].Value != null && dataGridView1.Rows[i].Cells["Credit"].Value != null)
+                    {
+                        if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "By")
+                        {
+                            dataGridView1.Rows[i].Cells["Credit"].Value = 0;
+                            totby += Convert.ToDouble(dataGridView1.Rows[i].Cells["Debit"].Value);
+                            lbltotdr.Text = Convert.ToString(Math.Round(totby, 2));
+                        }
+                        if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "To")
+                        {
+                            dataGridView1.Rows[i].Cells["Debit"].Value = 0;
+                            totto += Convert.ToDouble(dataGridView1.Rows[i].Cells["Credit"].Value);
+                            lbltotcr.Text = Convert.ToString(Math.Round(totto, 2));
+                        }
+
                     }
 
                 }
@@ -1136,7 +1153,7 @@ namespace FINNSOFT
                 else
                 {
 
-                    MessageBox.Show("Process Complete");
+                    MessageBox.Show("Process Completed");
                     dateTimePicker1.Value = DateTime.Today;
                     btnclear_Click(null, null);
                     txtvno.Select();
