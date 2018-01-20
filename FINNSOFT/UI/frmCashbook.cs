@@ -20,6 +20,7 @@ namespace FINNSOFT
         private void frmCashbook_Load(object sender, EventArgs e)
         {
             fillGrid();
+            filltotal();
         }
 
         public void fillGrid()
@@ -100,18 +101,34 @@ namespace FINNSOFT
             }
             if (OpBal > 0)
             {
-                dataGridView1.Rows[mRow].Cells["Debit"].Value = OpBal;
+                dataGridView1.Rows[mRow].Cells["Debit"].Value = Math.Round(OpBal,2);
             }
             else if (OpBal < 0)
             {
-                dataGridView1.Rows[mRow].Cells["Credit"].Value = Math.Abs(OpBal);
+                dataGridView1.Rows[mRow].Cells["Credit"].Value = Math.Round(OpBal, 2)*-1;
             }
             else
             {
                 //dataGridView1.Rows[mRow].Cells["Debit"].Value = OpBal;
             }
         }
-
+        private void filltotal()
+        {
+            double totdebit=0;
+            double totcredit=0;
+            Int32 rowcnt = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (Convert.ToString(row.Cells["Particular"].Value) != "")
+                {
+                    totdebit = totdebit + Convert.ToDouble(dataGridView1.Rows[rowcnt].Cells["Debit"].Value);
+                    totcredit = totcredit + Convert.ToDouble(dataGridView1.Rows[rowcnt].Cells["Credit"].Value);
+                }
+                rowcnt = rowcnt + 1;
+            }
+            label2.Text = totdebit.ToString();
+            label6.Text = totcredit.ToString();
+        }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Global.ledgyear = 0;
@@ -132,9 +149,24 @@ namespace FINNSOFT
             F.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Global.ledgyear = 0;
+            Global.ledgmon = 0;
 
+            frmLedger.mSlid = dataGridView1.Rows[e.RowIndex].Cells["SLID"].Value.ToString();
+
+            try
+            {
+                frmLedger.mSlid = dataGridView1.Rows[e.RowIndex].Cells["SLID"].Value.ToString();
+            }
+            catch (Exception)
+            {
+                frmLedger.mSlid = "";
+            }
+            frmLedger.mLedger = dataGridView1.Rows[e.RowIndex].Cells["Particular"].Value.ToString();
+            frmLedger F = new frmLedger();
+            F.ShowDialog();
         }
     }
 }

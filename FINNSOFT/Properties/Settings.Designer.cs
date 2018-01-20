@@ -26,8 +26,8 @@ namespace FINNSOFT.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-S0IJJ60D;Initial Catalog=FINSOFT;Persist Security Info=True;Us" +
-            "er ID=sa;Password=admin@123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-S0IJJ60D;Initial Catalog=SLGFINSOFT;Persist Security Info=True" +
+            ";User ID=sa;Password=admin@123")]
         public string FINNSOFTConnectionString {
             get {
                 return ((string)(this["FINNSOFTConnectionString"]));

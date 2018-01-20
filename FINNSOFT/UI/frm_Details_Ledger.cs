@@ -267,13 +267,13 @@ namespace FINNSOFT
                         string amttype = ds.Tables["voucher1"].Rows[i]["AMTTYPE"].ToString();
                         if (amttype == "D")
                         {
-                            dr[6] = Math.Round(Convert.ToDouble(ds.Tables["voucher1"].Rows[i]["AMT"].ToString()), 2);
-                            dr[7] = 0;
+                            dr[6] = Convert.ToDouble(ds.Tables["voucher1"].Rows[i]["AMT"].ToString());
+                            dr[7] = 0.00;
                         }
                         else
                         {
-                            dr[6] = 0;
-                            dr[7] = Math.Round(Convert.ToDouble(ds.Tables["voucher1"].Rows[i]["AMT"].ToString()), 2);
+                            dr[6] = 0.00;
+                            dr[7] = Convert.ToDouble(ds.Tables["voucher1"].Rows[i]["AMT"].ToString());
                         }
 
                         dr[5] = name;
@@ -311,10 +311,11 @@ namespace FINNSOFT
 
                     totdr = 0.00;
                     totcr = 0.00;
-
+                    // Attach a handler to the CellFormatting event.
+                    
                     da.Dispose();
-
-
+                    
+                    
                     this.Cursor = Cursors.Default;
                 }
                 catch (Exception)
@@ -324,7 +325,7 @@ namespace FINNSOFT
 
             }
         }
-
+        
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -363,10 +364,7 @@ namespace FINNSOFT
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -493,7 +491,7 @@ namespace FINNSOFT
 
             xlWorkSheet.Range[xlWorkSheet.Cells[i + 5, j + 7], xlWorkSheet.Cells[i + 5, j + 8]].HorizontalAlignment = true;
 
-            xlWorkSheet.Cells[i + 1, j + 5] = "MP JEWELLERS (GB) & Co.";
+            xlWorkSheet.Cells[i + 1, j + 5] = "MP JEWELLERS () & Co.";
             xlWorkSheet.Cells[i + 3, j + 5] = "Branch: " + Global.branch;
             xlWorkSheet.Cells[i + 6, j + 1] = "VNO";
             xlWorkSheet.Cells[i + 6, j + 2] = "DATE";

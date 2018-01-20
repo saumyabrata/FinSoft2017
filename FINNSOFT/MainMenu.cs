@@ -149,9 +149,9 @@ namespace FINNSOFT
                         Global.userrole = Convert.ToString(rdr.GetValue(1));
 
                         string MtchPsswd = Decrypt(psswd);
-                        
 
-                        if (textBox2.Text == MtchPsswd && userrole=="Admin")
+                        //MessageBox.Show(MtchPsswd);
+                        if (textBox2.Text == MtchPsswd && userrole.Trim()=="Admin")
 
                         {
                             panel1.Visible = false;
@@ -179,11 +179,11 @@ namespace FINNSOFT
 
                             toolStripStatusLabel3.Text = "Financial Year: " + Global.finyr + "     ";
 
-                            toolStripStatusLabel4.Text = "    Built: 12th September 2017";
+                            toolStripStatusLabel4.Text = "    Built: 8th November, 2017";
 
                         }
 
-                        else if (textBox2.Text == MtchPsswd && userrole == "User")
+                        else if (textBox2.Text == MtchPsswd && userrole.Trim() == "User")
 
                         {
                             panel1.Visible = false;
@@ -406,6 +406,36 @@ namespace FINNSOFT
         {
             frmLedgerList ldgst = new frmLedgerList();
             ldgst.Show();
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void costCenterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataExportImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reindexingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void narrationResourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void budgetoryControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

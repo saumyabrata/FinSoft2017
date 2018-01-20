@@ -58,6 +58,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.FrmPL = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.usrname = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -97,11 +98,12 @@
             this.booksmenuButton,
             this.toolStripSeparator2,
             this.FrmPL,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripDropDownButton1});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip.Size = new System.Drawing.Size(931, 57);
+            this.toolStrip.Size = new System.Drawing.Size(1241, 57);
             this.toolStrip.TabIndex = 0;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -123,7 +125,7 @@
             this.SetupDropDownButton.Image = global::FINNSOFT.Properties.Resources.nxviewSZ;
             this.SetupDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SetupDropDownButton.Name = "SetupDropDownButton";
-            this.SetupDropDownButton.Size = new System.Drawing.Size(63, 54);
+            this.SetupDropDownButton.Size = new System.Drawing.Size(64, 54);
             this.SetupDropDownButton.Text = "Setup";
             // 
             // costCenterToolStripMenuItem
@@ -132,21 +134,23 @@
             this.costCenterToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.costCenterToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.UtilisateurSZ;
             this.costCenterToolStripMenuItem.Name = "costCenterToolStripMenuItem";
-            this.costCenterToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.costCenterToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
             this.costCenterToolStripMenuItem.Text = "Cost Center";
+            this.costCenterToolStripMenuItem.Click += new System.EventHandler(this.costCenterToolStripMenuItem_Click);
             // 
             // dataExportImportToolStripMenuItem
             // 
             this.dataExportImportToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.entry;
             this.dataExportImportToolStripMenuItem.Name = "dataExportImportToolStripMenuItem";
-            this.dataExportImportToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.dataExportImportToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
             this.dataExportImportToolStripMenuItem.Text = "Data Export/Import";
+            this.dataExportImportToolStripMenuItem.Click += new System.EventHandler(this.dataExportImportToolStripMenuItem_Click);
             // 
             // financialYearToolStripMenuItem
             // 
             this.financialYearToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.RedemSZ;
             this.financialYearToolStripMenuItem.Name = "financialYearToolStripMenuItem";
-            this.financialYearToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.financialYearToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.financialYearToolStripMenuItem.Text = "Add/Change Financial Year";
             this.financialYearToolStripMenuItem.Click += new System.EventHandler(this.financialYearToolStripMenuItem_Click);
             // 
@@ -154,7 +158,7 @@
             // 
             this.backupRestoreToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.CleUsbSZ;
             this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
-            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.backupRestoreToolStripMenuItem.Text = "Backup/Restore";
             this.backupRestoreToolStripMenuItem.Click += new System.EventHandler(this.backupRestoreToolStripMenuItem_Click);
             // 
@@ -162,14 +166,15 @@
             // 
             this.reindexingToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.WindowsMPSZ;
             this.reindexingToolStripMenuItem.Name = "reindexingToolStripMenuItem";
-            this.reindexingToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.reindexingToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
             this.reindexingToolStripMenuItem.Text = "Reindexing";
+            this.reindexingToolStripMenuItem.Click += new System.EventHandler(this.reindexingToolStripMenuItem_Click);
             // 
             // printVouchersToolStripMenuItem
             // 
             this.printVouchersToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.imprimantcleanSZe;
             this.printVouchersToolStripMenuItem.Name = "printVouchersToolStripMenuItem";
-            this.printVouchersToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.printVouchersToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.printVouchersToolStripMenuItem.Text = "Print Vouchers";
             this.printVouchersToolStripMenuItem.Click += new System.EventHandler(this.printVouchersToolStripMenuItem_Click);
             // 
@@ -177,7 +182,7 @@
             // 
             this.companyInformationToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.bitcometSZ;
             this.companyInformationToolStripMenuItem.Name = "companyInformationToolStripMenuItem";
-            this.companyInformationToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.companyInformationToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.companyInformationToolStripMenuItem.Text = "Switch Branch";
             this.companyInformationToolStripMenuItem.Click += new System.EventHandler(this.companyInformationToolStripMenuItem_Click);
             // 
@@ -185,21 +190,23 @@
             // 
             this.narrationResourceToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.BitdefenderSZ;
             this.narrationResourceToolStripMenuItem.Name = "narrationResourceToolStripMenuItem";
-            this.narrationResourceToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.narrationResourceToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
             this.narrationResourceToolStripMenuItem.Text = "Narration Resource";
+            this.narrationResourceToolStripMenuItem.Click += new System.EventHandler(this.narrationResourceToolStripMenuItem_Click);
             // 
             // budgetoryControlToolStripMenuItem
             // 
             this.budgetoryControlToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.ExcelSZ;
             this.budgetoryControlToolStripMenuItem.Name = "budgetoryControlToolStripMenuItem";
-            this.budgetoryControlToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.budgetoryControlToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
             this.budgetoryControlToolStripMenuItem.Text = "Budgetory Control";
+            this.budgetoryControlToolStripMenuItem.Click += new System.EventHandler(this.budgetoryControlToolStripMenuItem_Click);
             // 
             // userManagementToolStripMenuItem
             // 
             this.userManagementToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.User;
             this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
-            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(273, 56);
+            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.userManagementToolStripMenuItem.Text = "User Management";
             this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
             // 
@@ -237,7 +244,7 @@
             this.FrmVoucher.Image = global::FINNSOFT.Properties.Resources.Chart;
             this.FrmVoucher.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FrmVoucher.Name = "FrmVoucher";
-            this.FrmVoucher.Size = new System.Drawing.Size(63, 54);
+            this.FrmVoucher.Size = new System.Drawing.Size(64, 54);
             this.FrmVoucher.Text = "Voucher Entry";
             this.FrmVoucher.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -247,7 +254,7 @@
             this.voucherPrintToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.voucherPrintToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources._7039;
             this.voucherPrintToolStripMenuItem.Name = "voucherPrintToolStripMenuItem";
-            this.voucherPrintToolStripMenuItem.Size = new System.Drawing.Size(195, 56);
+            this.voucherPrintToolStripMenuItem.Size = new System.Drawing.Size(193, 28);
             this.voucherPrintToolStripMenuItem.Text = "Voucher Entry";
             this.voucherPrintToolStripMenuItem.Click += new System.EventHandler(this.voucherPrintToolStripMenuItem_Click);
             // 
@@ -257,7 +264,7 @@
             this.voucherPrintToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.voucherPrintToolStripMenuItem1.Image = global::FINNSOFT.Properties.Resources.imprimantcleanSZe;
             this.voucherPrintToolStripMenuItem1.Name = "voucherPrintToolStripMenuItem1";
-            this.voucherPrintToolStripMenuItem1.Size = new System.Drawing.Size(195, 56);
+            this.voucherPrintToolStripMenuItem1.Size = new System.Drawing.Size(193, 28);
             this.voucherPrintToolStripMenuItem1.Text = "Voucher Print";
             this.voucherPrintToolStripMenuItem1.Click += new System.EventHandler(this.voucherPrintToolStripMenuItem1_Click);
             // 
@@ -279,7 +286,7 @@
             this.booksmenuButton.Image = global::FINNSOFT.Properties.Resources.File;
             this.booksmenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.booksmenuButton.Name = "booksmenuButton";
-            this.booksmenuButton.Size = new System.Drawing.Size(63, 54);
+            this.booksmenuButton.Size = new System.Drawing.Size(64, 54);
             this.booksmenuButton.Text = "Book of Accounts";
             // 
             // cashBankBookToolStripMenuItem
@@ -288,7 +295,7 @@
             this.cashBankBookToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.cashBankBookToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.MyDocumentFolder;
             this.cashBankBookToolStripMenuItem.Name = "cashBankBookToolStripMenuItem";
-            this.cashBankBookToolStripMenuItem.Size = new System.Drawing.Size(216, 56);
+            this.cashBankBookToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
             this.cashBankBookToolStripMenuItem.Text = "Cash/Bank Book";
             this.cashBankBookToolStripMenuItem.Click += new System.EventHandler(this.cashBankBookToolStripMenuItem_Click);
             // 
@@ -298,7 +305,7 @@
             this.booksOfAccountToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.booksOfAccountToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.ProgrammesSZ;
             this.booksOfAccountToolStripMenuItem.Name = "booksOfAccountToolStripMenuItem";
-            this.booksOfAccountToolStripMenuItem.Size = new System.Drawing.Size(216, 56);
+            this.booksOfAccountToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
             this.booksOfAccountToolStripMenuItem.Text = "Books of Account";
             this.booksOfAccountToolStripMenuItem.Click += new System.EventHandler(this.booksOfAccountToolStripMenuItem_Click);
             // 
@@ -308,7 +315,7 @@
             this.trialBalanceToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.trialBalanceToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.rich_text_format;
             this.trialBalanceToolStripMenuItem.Name = "trialBalanceToolStripMenuItem";
-            this.trialBalanceToolStripMenuItem.Size = new System.Drawing.Size(216, 56);
+            this.trialBalanceToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
             this.trialBalanceToolStripMenuItem.Text = "Trial Balance";
             this.trialBalanceToolStripMenuItem.Click += new System.EventHandler(this.trialBalanceToolStripMenuItem_Click);
             // 
@@ -318,7 +325,7 @@
             this.currentBalanceToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.currentBalanceToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.MyDocumentFolder;
             this.currentBalanceToolStripMenuItem.Name = "currentBalanceToolStripMenuItem";
-            this.currentBalanceToolStripMenuItem.Size = new System.Drawing.Size(216, 56);
+            this.currentBalanceToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
             this.currentBalanceToolStripMenuItem.Text = "Current Balance";
             this.currentBalanceToolStripMenuItem.Click += new System.EventHandler(this.currentBalanceToolStripMenuItem_Click);
             // 
@@ -328,7 +335,7 @@
             this.dayBookToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.dayBookToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.Bloc_Notes_SZ;
             this.dayBookToolStripMenuItem.Name = "dayBookToolStripMenuItem";
-            this.dayBookToolStripMenuItem.Size = new System.Drawing.Size(216, 56);
+            this.dayBookToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
             this.dayBookToolStripMenuItem.Text = "Day Book";
             this.dayBookToolStripMenuItem.Click += new System.EventHandler(this.dayBookToolStripMenuItem_Click);
             // 
@@ -338,7 +345,7 @@
             this.ledgerDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.ledgerDetailsToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.entry;
             this.ledgerDetailsToolStripMenuItem.Name = "ledgerDetailsToolStripMenuItem";
-            this.ledgerDetailsToolStripMenuItem.Size = new System.Drawing.Size(216, 56);
+            this.ledgerDetailsToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
             this.ledgerDetailsToolStripMenuItem.Text = "Ledger Details";
             this.ledgerDetailsToolStripMenuItem.Click += new System.EventHandler(this.ledgerDetailsToolStripMenuItem_Click);
             // 
@@ -368,8 +375,19 @@
             this.toolStripButton1.Text = "Balance Sheet";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(64, 54);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
+            // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usrname,
             this.toolStripStatusLabel1,
@@ -377,9 +395,10 @@
             this.toolStripStatusLabel3,
             this.Bar1,
             this.toolStripStatusLabel4});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 630);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 776);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(931, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1241, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -387,25 +406,25 @@
             // 
             this.usrname.Name = "usrname";
             this.usrname.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.usrname.Size = new System.Drawing.Size(100, 17);
+            this.usrname.Size = new System.Drawing.Size(100, 21);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 21);
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 21);
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 21);
             // 
             // Bar1
             // 
@@ -413,7 +432,7 @@
             this.Bar1.ForeColor = System.Drawing.Color.Red;
             this.Bar1.Name = "Bar1";
             this.Bar1.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
-            this.Bar1.Size = new System.Drawing.Size(200, 16);
+            this.Bar1.Size = new System.Drawing.Size(133, 20);
             this.Bar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.Bar1.ToolTipText = "Progress...";
             // 
@@ -423,15 +442,16 @@
             this.toolStripStatusLabel4.ForeColor = System.Drawing.Color.Blue;
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
             this.toolStripStatusLabel4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(0, 21);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(154, 167);
+            this.panel1.Location = new System.Drawing.Point(205, 206);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(578, 283);
+            this.panel1.Size = new System.Drawing.Size(771, 348);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -449,9 +469,11 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(14, 15);
+            this.groupBox1.Location = new System.Drawing.Point(19, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 254);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(732, 313);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
@@ -459,9 +481,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FINNSOFT.Properties.Resources.Sign_In;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 91);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(98, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(131, 121);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
@@ -475,9 +498,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(409, 157);
+            this.button1.Location = new System.Drawing.Point(545, 193);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 41);
+            this.button1.Size = new System.Drawing.Size(99, 50);
             this.button1.TabIndex = 16;
             this.button1.Text = "Sign In";
             this.button1.UseVisualStyleBackColor = false;
@@ -486,9 +510,10 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(278, 177);
+            this.comboBox2.Location = new System.Drawing.Point(371, 218);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(160, 25);
             this.comboBox2.TabIndex = 15;
             // 
             // label4
@@ -496,9 +521,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(136, 179);
+            this.label4.Location = new System.Drawing.Point(181, 220);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 20);
+            this.label4.Size = new System.Drawing.Size(164, 25);
             this.label4.TabIndex = 14;
             this.label4.Text = "Financial Year -";
             // 
@@ -507,18 +533,20 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(136, 140);
+            this.label3.Location = new System.Drawing.Point(181, 172);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.Size = new System.Drawing.Size(94, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Branch -";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(278, 139);
+            this.comboBox1.Location = new System.Drawing.Point(371, 171);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(160, 25);
             this.comboBox1.TabIndex = 12;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
@@ -528,19 +556,21 @@
             this.textBox2.AcceptsTab = true;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(278, 100);
+            this.textBox2.Location = new System.Drawing.Point(371, 123);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.MaxLength = 12;
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(205, 22);
+            this.textBox2.Size = new System.Drawing.Size(272, 26);
             this.textBox2.TabIndex = 11;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(278, 60);
+            this.textBox1.Location = new System.Drawing.Point(371, 74);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 22);
+            this.textBox1.Size = new System.Drawing.Size(272, 26);
             this.textBox1.TabIndex = 10;
             // 
             // label2
@@ -548,9 +578,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(136, 100);
+            this.label2.Location = new System.Drawing.Point(181, 123);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 9;
             this.label2.Text = "Password -";
             // 
@@ -559,26 +590,28 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(136, 60);
+            this.label1.Location = new System.Drawing.Point(181, 74);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 20);
+            this.label1.Size = new System.Drawing.Size(133, 25);
             this.label1.TabIndex = 8;
             this.label1.Text = "User Name -";
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(931, 652);
+            this.ClientSize = new System.Drawing.Size(1241, 802);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
@@ -646,5 +679,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripMenuItem dayBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ledgerDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
     }
 }

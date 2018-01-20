@@ -857,7 +857,7 @@ namespace FINNSOFT
                         }
 
                         qry = "delete from tblledger where vno = " + txtvno.Text + " and trantype = '" + vtype + "' and brcode = '" + Global.branch + "' and finyr='"+ Global.finyr +"'";
-                    com.BeginExecuteNonQuery();
+                        com.BeginExecuteNonQuery();
                         com = new SqlCommand(qry, clsConnection.Conn);
                         com.ExecuteNonQuery();
 
@@ -870,7 +870,7 @@ namespace FINNSOFT
                                     "(@finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype,@chqno)";
                                 com = new SqlCommand(qry, clsConnection.Conn);
                                 com.Parameters.Clear();
-                                 com.Parameters.AddWithValue("@finyr", Global.finyr);
+                                com.Parameters.AddWithValue("@finyr", Global.finyr);
                                 com.Parameters.AddWithValue("@Brcode", Global.branch);
                                 com.Parameters.AddWithValue("@Trantype", vtype);
                                 com.Parameters.AddWithValue("@vno", txtvno.Text);
@@ -1028,8 +1028,8 @@ namespace FINNSOFT
                     com.Parameters.AddWithValue("@trantype", vtype);
                     com.Parameters.AddWithValue("@iscontra", 0);
                     com.Parameters.AddWithValue("@inventoryvno", "Normal Voucher");
-                // com.Parameters.AddWithValue("@IsDltd", "NO");
-                com.BeginExecuteNonQuery();
+                    // com.Parameters.AddWithValue("@IsDltd", "NO");
+                    //com.BeginExecuteNonQuery();
                     com.ExecuteNonQuery();
 
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
