@@ -151,9 +151,26 @@ namespace FINNSOFT
 
         private void DashBoardMenu_Load(object sender, EventArgs e)
         {
+            fillChart();
             
             
-            
+        }
+
+        private void fillChart()
+        {
+            SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=Sample;Integrated Security=true;");
+            DataSet ds = new DataSet();
+            con.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter("Select Name,Salary from tbl_EmpSalary", con);
+            adapt.Fill(ds);
+            chart1.DataSource = ds;
+            //set the member of the chart data source used to data bind to the X-values of the series  
+            chart1.Series["Salary"].XValueMember = "Name";
+            //set the member columns of the chart data source used to data bind to the X-values of the series  
+            chart1.Series["Salary"].YValueMembers = "Salary";
+            chart1.Titles.Add("Salary Chart");
+            con.Close();
+
         }
         private void DashBoardMenu_KeyUp(object sender, KeyEventArgs e)
         {
@@ -174,6 +191,11 @@ namespace FINNSOFT
         {
             frmInvCorrection invCorrection = new frmInvCorrection();
             invCorrection.Show();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

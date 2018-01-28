@@ -49,9 +49,9 @@ namespace FINNSOFT.UI
                 CreditorList.DisplayMember = "ledgname";
                 CreditorList.ValueMember = "glsl";
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -61,9 +61,30 @@ namespace FINNSOFT.UI
             fillledgers();
             CreditorFind.Focus();
             //dataGridView1.Rows.Clear();
-            
+            TxtInv.Text = "";
+            TxtJob.Text = "";
+            txtinvdate.Text = "";
+            TxtInvValue.Text = "0.00";
+            txtothers.Text = "0.00";
+            txtdiscount.Text = "0.00";
+            txtsgst.Text = "0.00";
+            txtcgst.Text = "0.00";
+            txtigst.Text = "0.00";
+            textnet.Text = "0.00";
+            TxtInv.Focus();
         }
-
+        private void calculatenet()
+        {
+            try
+            {
+                textnet.Text = Convert.ToDouble(Convert.ToDouble(TxtInvValue.Text) + Convert.ToDouble(txtothers.Text) - Convert.ToDouble(txtdiscount.Text) +
+                        +Convert.ToDouble(txtsgst.Text) + Convert.ToDouble(txtcgst.Text) + Convert.ToDouble(txtigst.Text)).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void CreditorFind_TextChanged(object sender, EventArgs e)
         {
             string str = CreditorFind.Text;
@@ -71,8 +92,10 @@ namespace FINNSOFT.UI
             {
                 CreditorList.SelectedIndex = CreditorList.FindString(str, 0);
             }
-            catch (Exception)
-            { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CreditorList_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,6 +187,7 @@ namespace FINNSOFT.UI
         {
             if (e.KeyChar == 13)
             {
+                TxtInvValue.SelectAll();
                 TxtInvValue.Focus();
             }
 
@@ -191,21 +215,27 @@ namespace FINNSOFT.UI
                 if (dataGridView1.Rows[a].Cells[0].Value != null)
                 {
 
-                    string qry = "insert into TblCreditorInvMast (finyr,Brcode,GLID,SLID,Creditor_Name,InvNo,InvDt,Job,InvValue,PaidSum,Payment_Status) values " +
-                        "(@finyr,@Brcode,@glid,@slid,@creditor,@invno,@invdt,@job,@invvalue,0,'N')";
+                    string qry = "insert into TblCreditorInvMast (finyr,Brcode,GLID,SLID,Creditor_Name,InvNo,InvDt,Job,InvValue," +
+                                "other_charge,discount,sgst,cgst,igst,net_value,PaidSum,Payment_Status) values " +
+                        "(@finyr,@Brcode,@glid,@slid,@creditor,@invno,@invdt,@job,@invvalue,@othchg,@disc,@sgst,@cgst,@igst,@netval,0,'N')";
                     SqlCommand com = new SqlCommand(qry, clsConnection.Conn);
-                    com.Parameters.Clear();
-                    com.Parameters.AddWithValue("@finyr", Global.finyr);
-                    com.Parameters.AddWithValue("@Brcode", Global.branch);
-                    com.Parameters.AddWithValue("@glid", label8.Text);
-                    com.Parameters.AddWithValue("@slid", label9.Text);
-                    com.Parameters.AddWithValue("@Creditor", CreditorFind.Text);
-                    com.Parameters.AddWithValue("@InvNo", dataGridView1.Rows[a].Cells[0].Value);
-                    com.Parameters.AddWithValue("@Job", dataGridView1.Rows[a].Cells[1].Value);
-                    com.Parameters.AddWithValue("@InvDt", dataGridView1.Rows[a].Cells[2].Value);
-                    com.Parameters.AddWithValue("@invvalue", Convert.ToDouble(dataGridView1.Rows[a].Cells[3].Value ?? 0));
-
-                    com.ExecuteNonQuery();
+                        com.Parameters.Clear();
+                        com.Parameters.AddWithValue("@finyr", Global.finyr);
+                        com.Parameters.AddWithValue("@Brcode", Global.branch);
+                        com.Parameters.AddWithValue("@glid", label8.Text);
+                        com.Parameters.AddWithValue("@slid", label9.Text);
+                        com.Parameters.AddWithValue("@Creditor", CreditorFind.Text);
+                        com.Parameters.AddWithValue("@InvNo", dataGridView1.Rows[a].Cells[0].Value);
+                        com.Parameters.AddWithValue("@Job", dataGridView1.Rows[a].Cells[1].Value);
+                        com.Parameters.AddWithValue("@InvDt", dataGridView1.Rows[a].Cells[2].Value);
+                        com.Parameters.AddWithValue("@invvalue", Convert.ToDouble(dataGridView1.Rows[a].Cells[3].Value ?? 0));
+                        com.Parameters.AddWithValue("@othchg", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value ?? 0));
+                        com.Parameters.AddWithValue("@disc", Convert.ToDouble(dataGridView1.Rows[a].Cells[5].Value ?? 0));
+                        com.Parameters.AddWithValue("@sgst", Convert.ToDouble(dataGridView1.Rows[a].Cells[6].Value ?? 0));
+                        com.Parameters.AddWithValue("@cgst", Convert.ToDouble(dataGridView1.Rows[a].Cells[7].Value ?? 0));
+                        com.Parameters.AddWithValue("@igst", Convert.ToDouble(dataGridView1.Rows[a].Cells[8].Value ?? 0));
+                        com.Parameters.AddWithValue("@netval", Convert.ToDouble(dataGridView1.Rows[a].Cells[9].Value ?? 0));
+                        com.ExecuteNonQuery();
 
                 }
 
@@ -224,11 +254,17 @@ namespace FINNSOFT.UI
             com2.Parameters.AddWithValue("@Remarks", "New Creditor Invoice Entry of Creditor: " + CreditorFind.Text.ToString());
             com2.ExecuteNonQuery();
             MessageBox.Show("Record saved successfully");
-            TxtInv.Text = "";
-            TxtJob.Text = "";
-            txtinvdate.Text = "";
-            TxtInvValue.Text = "";
-            TxtInv.Focus();
+                TxtInv.Text = "";
+                TxtJob.Text = "";
+                txtinvdate.Text = "";
+                TxtInvValue.Text = "0.00";
+                txtothers.Text = "0.00";
+                txtdiscount.Text = "0.00";
+                txtsgst.Text = "0.00";
+                txtcgst.Text = "0.00";
+                txtigst.Text = "0.00";
+                textnet.Text = "0.00";
+                TxtInv.Focus();
             dataGridView1.Rows.Clear();
             dataGridView1.RowCount = 1;
             CreditorFind.Focus();
@@ -240,6 +276,32 @@ namespace FINNSOFT.UI
 }
 
         private void TxtInvValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+
+                // only allow one decimal point
+                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                {
+                    e.Handled = true;
+                }
+
+                calculatenet();
+                txtothers.SelectAll();
+                txtothers.Focus();
+            }
+        }
+
+        private void TxtInvValue_TextChanged(object sender, EventArgs e)
+        {
+                
+        }
+
+        private void txtigst_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -254,9 +316,12 @@ namespace FINNSOFT.UI
 
             if (e.KeyChar == 13)
             {
-                if (String.IsNullOrEmpty(TxtInv.Text) || String.IsNullOrEmpty(TxtJob.Text) || String.IsNullOrEmpty(txtinvdate.Text) || String.IsNullOrEmpty(TxtInvValue.Text))
+                calculatenet();
+                if (String.IsNullOrEmpty(TxtInv.Text) || String.IsNullOrEmpty(TxtJob.Text) || String.IsNullOrEmpty(txtinvdate.Text) || 
+                    String.IsNullOrEmpty(TxtInvValue.Text) || string.IsNullOrEmpty(txtsgst.Text) || (string.IsNullOrEmpty(txtcgst.Text) 
+                    && string.IsNullOrEmpty(txtigst.Text)))
                 {
-                    MessageBox.Show("Fields can not be left blank.");
+                    MessageBox.Show(" Highlighted Fields can not be left blank.");
                     if (String.IsNullOrEmpty(TxtInv.Text))
                     {
                         TxtInv.Focus();
@@ -272,6 +337,10 @@ namespace FINNSOFT.UI
                     if (String.IsNullOrEmpty(TxtInvValue.Text))
                     {
                         TxtInvValue.Focus();
+                    }
+                    if (String.IsNullOrEmpty(txtsgst.Text))
+                    {
+                        txtsgst.Focus();
                     }
                 }
                 else
@@ -293,7 +362,13 @@ namespace FINNSOFT.UI
                             TxtInv.Text = "";
                             TxtJob.Text = "";
                             txtinvdate.Text = "";
-                            TxtInvValue.Text = "";
+                            TxtInvValue.Text = "0.00";
+                            txtothers.Text = "0.00";
+                            txtdiscount.Text = "0.00";
+                            txtsgst.Text = "0.00";
+                            txtcgst.Text = "0.00";
+                            txtigst.Text = "0.00";
+                            textnet.Text = "0.00";
                             TxtInv.Focus();
                         }
                         else
@@ -304,6 +379,12 @@ namespace FINNSOFT.UI
                                 dataGridView1.Rows[0].Cells[1].Value = TxtJob.Text;
                                 dataGridView1.Rows[0].Cells[2].Value = Convert.ToString(txtinvdate.Text);
                                 dataGridView1.Rows[0].Cells[3].Value = TxtInvValue.Text;
+                                dataGridView1.Rows[0].Cells[4].Value = txtothers.Text;
+                                dataGridView1.Rows[0].Cells[5].Value = txtdiscount.Text;
+                                dataGridView1.Rows[0].Cells[6].Value = txtsgst.Text;
+                                dataGridView1.Rows[0].Cells[7].Value = txtcgst.Text;
+                                dataGridView1.Rows[0].Cells[8].Value = txtigst.Text;
+                                dataGridView1.Rows[0].Cells[9].Value = textnet.Text;
                                 dataGridView1.Rows.Add();
                             }
                             else
@@ -314,12 +395,24 @@ namespace FINNSOFT.UI
                                 dataGridView1.Rows[i].Cells[1].Value = TxtJob.Text;
                                 dataGridView1.Rows[i].Cells[2].Value = Convert.ToString(txtinvdate.Text);
                                 dataGridView1.Rows[i].Cells[3].Value = TxtInvValue.Text;
+                                dataGridView1.Rows[i].Cells[4].Value = txtothers.Text;
+                                dataGridView1.Rows[i].Cells[5].Value = txtdiscount.Text;
+                                dataGridView1.Rows[i].Cells[6].Value = txtsgst.Text;
+                                dataGridView1.Rows[i].Cells[7].Value = txtcgst.Text;
+                                dataGridView1.Rows[i].Cells[8].Value = txtigst.Text;
+                                dataGridView1.Rows[i].Cells[9].Value = textnet.Text;
 
                             }
                             TxtInv.Text = "";
                             TxtJob.Text = "";
                             txtinvdate.Text = "";
-                            TxtInvValue.Text = "";
+                            TxtInvValue.Text = "0.00";
+                            txtothers.Text = "0.00";
+                            txtdiscount.Text = "0.00";
+                            txtsgst.Text = "0.00";
+                            txtcgst.Text = "0.00";
+                            txtigst.Text = "0.00";
+                            textnet.Text = "0.00";
                             TxtInv.Focus();
                         }
                     }
@@ -328,13 +421,122 @@ namespace FINNSOFT.UI
                         MessageBox.Show(ex.Message);
                     }
                 }
-                    
+
             }
         }
 
-        private void TxtInvValue_TextChanged(object sender, EventArgs e)
+        private void txtothers_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtdiscount_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtsgst_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtcgst_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtigst_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtothers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == 13)
+            {
+                calculatenet();
+                txtdiscount.SelectAll();
+                txtdiscount.Focus();
+            }
+        }
+
+        private void txtdiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == 13)
+            {
+                calculatenet();
+                txtsgst.SelectAll();
+                txtsgst.Focus();
+            }
+        }
+
+        private void txtsgst_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void txtsgst_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == 13)
+            {
+                calculatenet();
+                txtcgst.SelectAll();
+                txtcgst.Focus();
+            }
+        }
+
+        private void txtcgst_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == 13)
+            {
+                calculatenet();
+                txtigst.SelectAll();
+                txtigst.Focus();
+            }
         }
     }
 }
