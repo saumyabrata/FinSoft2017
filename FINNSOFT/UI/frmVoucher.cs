@@ -19,6 +19,7 @@ namespace FINNSOFT
         DateTime vchdt;
         int cntr;
         string vtype1;
+        int cnt1 = 0;
 
         public frmVoucher()
         {
@@ -91,15 +92,16 @@ namespace FINNSOFT
                 }
 
                 else
+                { 
                     if (dataGridView1.Rows.Count == 0)
-                {
-                    dataGridView1.Rows.Add();
-                    dataGridView1.Focus();
-                    dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
-                    dataGridView1.Rows[0].Cells[0].Value = "By";
-                    dataGridView1.BeginEdit(true);
+                    {
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Focus();
+                        dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                        dataGridView1.Rows[0].Cells[0].Value = "By";
+                        dataGridView1.BeginEdit(true);
+                    }
                 }
-
                 string qry1 = "select max(vdt) from tblvoucher where brcode='" + Global.branch + "' and finyr='"+ Global.finyr +"'";
 
                 SqlDataReader sread = null;
@@ -135,12 +137,16 @@ namespace FINNSOFT
             }
         }
 
-        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+
+            
+
             if (e.ColumnIndex == 0)
             {
                 try
                 {
+                    
                     string str = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
                     if (str.ToUpper() == "B" || str.ToUpper() == "BY")
@@ -158,6 +164,7 @@ namespace FINNSOFT
                                 {
                                     totby += Convert.ToDouble(dataGridView1.Rows[i].Cells["Debit"].Value);
                                     lbltotdr.Text = Convert.ToString(Math.Round(totby, 2));
+                                    dataGridView1.Rows[i + 1].Cells[0].Value = "To";
                                 }
                                 else if (dataGridView1.Rows[i].Cells["Credit"].Value != null)
                                 {
@@ -192,6 +199,7 @@ namespace FINNSOFT
                                 {
                                     totby += Convert.ToDouble(dataGridView1.Rows[i].Cells["Debit"].Value);
                                     lbltotdr.Text = Convert.ToString(Math.Round(totby, 2));
+                                    dataGridView1.Rows[i + 1].Cells[0].Value = "To";
                                 }
 
                                 if (dataGridView1.Rows[i].Cells["Credit"].Value != null)
@@ -237,6 +245,7 @@ namespace FINNSOFT
                     textBox1.Text = str;
                     textBox1.Focus();
                     textBox1.SelectionStart = textBox1.Text.Length;
+                    
                 }
                 catch (Exception)
                 { }
@@ -248,7 +257,7 @@ namespace FINNSOFT
 
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    if (dataGridView1.Rows[i].Cells["Debit"].Value != null && dataGridView1.Rows[i].Cells["Credit"].Value == null)
+                    if (dataGridView1.Rows[i].Cells["Debit"].Value != null)
                     {
                         if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "By")
                         {
@@ -258,45 +267,17 @@ namespace FINNSOFT
 
                     }
 
-                    if (dataGridView1.Rows[i].Cells["Credit"].Value != null && dataGridView1.Rows[i].Cells["Debit"].Value == null)
+                        if (dataGridView1.Rows[i].Cells["Credit"].Value != null)
                         {
                         if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "To")
                         {
                             totto += Convert.ToDouble(dataGridView1.Rows[i].Cells["Credit"].Value);
                             lbltotcr.Text = Convert.ToString(Math.Round(totto, 2));
                         }
-                    }
-
-                    if (dataGridView1.Rows[i].Cells["Debit"].Value != null && dataGridView1.Rows[i].Cells["Credit"].Value != null)
-                    {
-                        if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "By")
-                        {
-                            dataGridView1.Rows[i].Cells["Credit"].Value = 0;
-                            totby += Convert.ToDouble(dataGridView1.Rows[i].Cells["Debit"].Value);
-                            lbltotdr.Text = Convert.ToString(Math.Round(totby, 2));
-                        }
-                        if (dataGridView1.Rows[i].Cells[0].Value.ToString() == "To")
-                        {
-                            dataGridView1.Rows[i].Cells["Debit"].Value = 0;
-                            totto += Convert.ToDouble(dataGridView1.Rows[i].Cells["Credit"].Value);
-                            lbltotcr.Text = Convert.ToString(Math.Round(totto, 2));
-                        }
-
                     }
 
                 }
             }
-
-            //else if (e.ColumnIndex == 5)
-
-            //{
-
-            //    if (dramt == 0 && cramt == 0)
-            //    {
-            //        txtnarr.Select();
-
-            //    }
-            //}
 
             }
 
@@ -306,27 +287,16 @@ namespace FINNSOFT
             {
                 int row = dataGridView1.CurrentCell.RowIndex;
                 int col = dataGridView1.CurrentCell.ColumnIndex;
-
-            //    if (col == 0)
-            //    {
-            //        dataGridView1.CurrentCell = dataGridView1.Rows[row].Cells["ledgername"];
-            //        dataGridView1.BeginEdit(true);
-            //    }
+                
                 if (col == 3)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[row].Cells["Credit"];
                     dataGridView1.BeginEdit(true);
 
                 }
-                    //    else if (col == 4)
-                    //    {
-                    //        dataGridView1.Rows.Add();
-                    //        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count-1].Cells[0];
-                    //        dataGridView1.BeginEdit(true);
-                    //    }
-                   }
+            }
 
-                    if (e.KeyCode.ToString() == "Escape")
+            if (e.KeyCode.ToString() == "Escape")
             {
 
                 double totby = 0.0, totto = 0.0;
@@ -364,12 +334,9 @@ namespace FINNSOFT
             {
                 int row = dataGridView1.CurrentCell.RowIndex;
                 int col = dataGridView1.CurrentCell.ColumnIndex;
+                MessageBox.Show(col.ToString());
 
-                //    if (col == 0)
-                //    {
-                //        dataGridView1.CurrentCell = dataGridView1.Rows[row].Cells["ledgername"];
-                //        dataGridView1.BeginEdit(true);
-                //    }
+
                 if (col == 3)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[row].Cells["Credit"];
@@ -409,8 +376,10 @@ namespace FINNSOFT
             panel1.Visible = false;
             fillledgers();
             getmaxjid("J");
-            dateTimePicker1.Focus();
             dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker1.Focus();
+            issuedt.Value = DateTime.Now;
+            
         }
 
         private void fillledgers()
@@ -462,13 +431,7 @@ namespace FINNSOFT
             listBox1.DisplayMember = "ledgname";
             listBox1.ValueMember = "glsl";
 
-
             
-            //listBox1.Items.Add("z");
-            //listBox1.Items.Add("a");
-            //listBox1.Items.Add("d");
-            //listBox1.Items.Add("b");
-            //listBox1.Sorted = true;
 
         }
 
@@ -509,7 +472,7 @@ namespace FINNSOFT
             if (str == "Return")
             {
                 listBox1.SelectedIndex = listBox1.FindString(textBox1.Text, 0);
-                str = listBox1.SelectedValue.ToString();
+               str = listBox1.SelectedValue.ToString();
 
                 string glid = str.Substring(0, str.IndexOf("-"));
                 string slid = str.Substring(str.IndexOf("-") + 1, str.Length - (str.IndexOf("-") + 1));
@@ -581,6 +544,8 @@ namespace FINNSOFT
             lbltotdr.Text = "0";
             txtnarr.Text = "Narration Here";
             dateTimePicker1.Value = DateTime.Today;
+            issuedt.Value = DateTime.Today;
+            chqno.Text = "";
             vtype1 = "J";
             getmaxjid("J");
             dataGridView1.Rows.Clear();
@@ -600,6 +565,8 @@ namespace FINNSOFT
             getmaxjid("R");
             dataGridView1.Rows.Clear();
             dateTimePicker1.Value = DateTime.Today;
+            issuedt.Value = DateTime.Today;
+            chqno.Text = "";
             dateTimePicker1.Focus();
         }
 
@@ -614,6 +581,8 @@ namespace FINNSOFT
             getmaxjid("Y");
             dataGridView1.Rows.Clear();
             dateTimePicker1.Value = DateTime.Today;
+            issuedt.Value = DateTime.Today;
+            chqno.Text = "";
             dateTimePicker1.Focus();
         }
 
@@ -628,6 +597,8 @@ namespace FINNSOFT
             getmaxjid("T");
             dataGridView1.Rows.Clear();
             dateTimePicker1.Value = DateTime.Today;
+            issuedt.Value = DateTime.Today;
+            chqno.Text = "";
             dateTimePicker1.Focus();
         }
 
@@ -695,9 +666,17 @@ namespace FINNSOFT
                             dateTimePicker1.Enabled = true;
                             btnSave.Enabled = true;
                             txtnarr.Enabled = true;
-
+                            string chkdate = "";
                             dateTimePicker1.Value = Convert.ToDateTime(Convert.ToDateTime(ds.Tables["voucher"].Rows[0]["vdt"]).ToString("dd/MM/yyyy"));
-                            //VchDate = Convert.ToDateTime(Convert.ToDateTime(ds.Tables["voucher"].Rows[0]["vdt"]).ToString("dd/MM/yyyy"));
+                            chqno.Text = ds.Tables["voucher"].Rows[0]["Instrument_No"].ToString();
+                            chkdate = ds.Tables["voucher"].Rows[0]["Instrument_Date"].ToString();
+                            if (chkdate != "")
+                            {
+                                issuedt.Value = Convert.ToDateTime(Convert.ToDateTime(ds.Tables["voucher"].Rows[0]["Instrument_Date"]).ToString());
+                            }
+                            
+                                
+                            
 
                             qry = "select * from tblledger where vno = " + txtvno.Text + " and trantype = '" + vtype + "' and brcode = '" + Global.branch + "' and finyr='"+ Global.finyr +"'";
                             if (ds.Tables["ledger"] != null)
@@ -730,6 +709,7 @@ namespace FINNSOFT
                                 SqlCommand com = new SqlCommand(qry, clsConnection.Conn);
                                 string name = Convert.ToString(com.ExecuteScalar());
                                 string toby = "";
+                                
                                 if (ds.Tables["ledger"].Rows[i]["AMTTYPE"].ToString() == "D")
                                 {
                                     toby = "By";
@@ -743,14 +723,12 @@ namespace FINNSOFT
                                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["ledgername"].Value = name;
                                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["Debit"].Value = ds.Tables["ledger"].Rows[i]["AMT"].ToString();
                                     txtnarr.Text = ds.Tables["ledger"].Rows[i]["NAR"].ToString();
-
                                 }
                                 else
 
                                 {
                                     toby = "To";
                                     dataGridView1.Rows.Add();
-
                                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["toby"].Value = toby;
                                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["glid"].Value = glid;
                                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["slid"].Value = slid;
@@ -758,12 +736,9 @@ namespace FINNSOFT
                                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["Credit"].Value = ds.Tables["ledger"].Rows[i]["AMT"].ToString();
                                     txtnarr.Text = ds.Tables["ledger"].Rows[i]["NAR"].ToString();
                                 }
-
-                                
-
                                 try
                                 {
-                                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["ChqNo"].Value = ds.Tables["ledger"].Rows[i]["chqno"].ToString();
+                                   // dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["ChqNo"].Value = ds.Tables["ledger"].Rows[i]["chqno"].ToString();
                                 }
                                 catch (Exception)
                                 { }
@@ -857,7 +832,7 @@ namespace FINNSOFT
                         }
 
                         qry = "delete from tblledger where vno = " + txtvno.Text + " and trantype = '" + vtype + "' and brcode = '" + Global.branch + "' and finyr='"+ Global.finyr +"'";
-                        com.BeginExecuteNonQuery();
+                   // com.BeginExecuteNonQuery();
                         com = new SqlCommand(qry, clsConnection.Conn);
                         com.ExecuteNonQuery();
 
@@ -866,11 +841,11 @@ namespace FINNSOFT
                         {
                             if (dataGridView1.Rows[i].Cells["Debit"].Value != null)
                             {
-                                qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype,chqno) values " +
-                                    "(@finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype,@chqno)";
+                                qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype) values " +
+                                    "(@finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype)";
                                 com = new SqlCommand(qry, clsConnection.Conn);
                                 com.Parameters.Clear();
-                                com.Parameters.AddWithValue("@finyr", Global.finyr);
+                                 com.Parameters.AddWithValue("@finyr", Global.finyr);
                                 com.Parameters.AddWithValue("@Brcode", Global.branch);
                                 com.Parameters.AddWithValue("@Trantype", vtype);
                                 com.Parameters.AddWithValue("@vno", txtvno.Text);
@@ -885,16 +860,9 @@ namespace FINNSOFT
                                     type = "C";
 
                                 com.Parameters.AddWithValue("@amttype", type);
-                                string chqno = "";
-                                //if (dataGridView1.Rows[i].Cells["ChqNo"].Value != null)
-                                //{
-                                //    chqno = dataGridView1.Rows[i].Cells["ChqNo"].Value.ToString();
-                                //}
-                                //else
-                                chqno = "";
-                                com.Parameters.AddWithValue("@chqno", chqno);
+                                
 
-                                com.ExecuteNonQuery();
+                            com.ExecuteNonQuery();
 
                                 //Insert Audit Tran
 
@@ -916,8 +884,8 @@ namespace FINNSOFT
 
                             else if (dataGridView1.Rows[i].Cells["Credit"].Value != null)
                             {
-                                qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype,chqno) values " +
-                                    "(@finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype,@chqno)";
+                                qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype) values " +
+                                    "(@finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype)";
                                 com = new SqlCommand(qry, clsConnection.Conn);
                                 com.Parameters.Clear();
                                 com.Parameters.AddWithValue("@finyr", Global.finyr);
@@ -933,16 +901,9 @@ namespace FINNSOFT
                                 type = "C";
 
                                 com.Parameters.AddWithValue("@amttype", type);
-                                string chqno = "";
-                                //if (dataGridView1.Rows[i].Cells["ChqNo"].Value != null)
-                                //{
-                                //    chqno = dataGridView1.Rows[i].Cells["ChqNo"].Value.ToString();
-                                //}
-                                //else
-                                chqno = "";
-                                com.Parameters.AddWithValue("@chqno", chqno);
+                                
 
-                                com.ExecuteNonQuery();
+                            com.ExecuteNonQuery();
 
                                 //Insert Audit Tran
 
@@ -965,7 +926,7 @@ namespace FINNSOFT
                             }
                         }
 
-                    com.EndExecuteNonQuery(com.BeginExecuteNonQuery());
+                 //   com.EndExecuteNonQuery(com.BeginExecuteNonQuery());
                 }
 
                     else if (cnt > 0 && (dateTimePicker1.Value != DateTime.Today))
@@ -1015,33 +976,52 @@ namespace FINNSOFT
                     {
                         return;
                     }
-
-                    qry = "insert into tblvoucher (finyr,BrCode,VDT,VNO,trantype,iscontra,inventoryvno) values " +
-                        "(@Finyr,@BrCode,@VDT,@VNO,@trantype,@iscontra,@inventoryvno)";
+                    string chqno = "";
+                    string isdate = "";
+                    chqno = this.chqno.Text;
+                    if (chqno != "")
+                    {
+                        isdate = issuedt.Value.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        isdate = "";
+                    }
+                    qry = "insert into tblvoucher (finyr,BrCode,VDT,VNO,trantype,iscontra,inventoryvno,instrument_no,instrument_date) values " +
+                        "(@Finyr,@BrCode,@VDT,@VNO,@trantype,@iscontra,@inventoryvno,@chqno,@issuedate)";
                     com = new SqlCommand(qry, clsConnection.Conn);
                     com.Parameters.Clear();
-                com.Parameters.AddWithValue("@finyr", Global.finyr);
-                com.Parameters.AddWithValue("@BrCode", Global.branch);
+                    com.Parameters.AddWithValue("@finyr", Global.finyr);
+                    com.Parameters.AddWithValue("@BrCode", Global.branch);
                     string dt = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //+ " " + System.DateTime.Now.ToString("HH:mm:ss");
                     com.Parameters.AddWithValue("@VDT", dt);
                     com.Parameters.AddWithValue("@VNO", vno1);
                     com.Parameters.AddWithValue("@trantype", vtype);
-                    com.Parameters.AddWithValue("@iscontra", 0);
+                    if (vtype=="T")
+                        {
+                            com.Parameters.AddWithValue("@iscontra", 1);
+                        }
+                    else
+                        {
+                            com.Parameters.AddWithValue("@iscontra", 0);
+                        }
                     com.Parameters.AddWithValue("@inventoryvno", "Normal Voucher");
-                    // com.Parameters.AddWithValue("@IsDltd", "NO");
-                    //com.BeginExecuteNonQuery();
+                    com.Parameters.AddWithValue("@chqno", chqno);
+                    com.Parameters.AddWithValue("@issuedate", isdate);
+                //  com.Parameters.AddWithValue("@IsDltd", "NO");
+                //  com.BeginExecuteNonQuery();
                     com.ExecuteNonQuery();
 
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
                         if (dataGridView1.Rows[i].Cells["Debit"].Value != null)
                         {
-                            qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype,chqno) values " +
-                                "(@Finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype,@chqno)";
+                            qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype) values " +
+                                "(@Finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype)";
                             com = new SqlCommand(qry, clsConnection.Conn);
                             com.Parameters.Clear();
-                        com.Parameters.AddWithValue("@Finyr", Global.finyr);
-                        com.Parameters.AddWithValue("@Brcode", Global.branch);
+                            com.Parameters.AddWithValue("@Finyr", Global.finyr);
+                            com.Parameters.AddWithValue("@Brcode", Global.branch);
                             com.Parameters.AddWithValue("@Trantype", vtype);
                             com.Parameters.AddWithValue("@vno", vno1);
                             com.Parameters.AddWithValue("@nar", txtnarr.Text);
@@ -1050,20 +1030,14 @@ namespace FINNSOFT
                             com.Parameters.AddWithValue("@amt", dataGridView1.Rows[i].Cells["Debit"].Value);
                             string type = dataGridView1.Rows[i].Cells[0].Value.ToString();
                             if (type == "By")
+                            { 
                                 type = "D";
+                            }
                             else
+                            {
                                 type = "C";
-
+                            }
                             com.Parameters.AddWithValue("@amttype", type);
-                            string chqno = "";
-                            //if (dataGridView1.Rows[i].Cells["ChqNo"].Value != null)
-                            //{
-                            //    chqno = dataGridView1.Rows[i].Cells["ChqNo"].Value.ToString();
-                            //}
-                            //else
-                            chqno = "";
-                            com.Parameters.AddWithValue("@chqno", chqno);
-
                             com.ExecuteNonQuery();
 
                             //Insert Audit Tran
@@ -1083,12 +1057,12 @@ namespace FINNSOFT
 
                         }
 
-                        // Code modified on 24-04-2017
-
+                    // Code modified on 24-04-2017
+                    
                         if (dataGridView1.Rows[i].Cells["Credit"].Value != null)
                         {
-                            qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype,chqno) values " +
-                                "(@Finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype,@chqno)";
+                            qry = "insert into tblledger (finyr,Brcode,Trantype,vno,nar,glid,slid,amt,amttype) values " +
+                                "(@Finyr,@Brcode,@Trantype,@vno,@nar,@glid,@slid,@amt,@amttype)";
                             com = new SqlCommand(qry, clsConnection.Conn);
                             com.Parameters.Clear();
                             com.Parameters.AddWithValue("@Finyr", Global.finyr);
@@ -1100,23 +1074,11 @@ namespace FINNSOFT
                             com.Parameters.AddWithValue("@slid", dataGridView1.Rows[i].Cells["slid"].Value);
                             com.Parameters.AddWithValue("@amt", dataGridView1.Rows[i].Cells["Credit"].Value);
                             string type = dataGridView1.Rows[i].Cells[0].Value.ToString();
-
                             type = "C";
-
                             com.Parameters.AddWithValue("@amttype", type);
-                            string chqno = "";
-                            //if (dataGridView1.Rows[i].Cells["ChqNo"].Value != null)
-                            //{
-                            //    chqno = dataGridView1.Rows[i].Cells["ChqNo"].Value.ToString();
-                            //}
-                            //else
-                            chqno = "";
-                            com.Parameters.AddWithValue("@chqno", chqno);
-
                             com.ExecuteNonQuery();
-
+                            
                             //Insert Audit Tran
-
                             qry = "insert into TblAuditTrn (HostName,ipaddress,menu,OperationType,username,Remarks) values " +
                                   "(@HostName,@ipaddress,@menu,@OperationType,@username,@Remarks)";
                             com = new SqlCommand(qry, clsConnection.Conn);
@@ -1130,10 +1092,14 @@ namespace FINNSOFT
 
                             com.ExecuteNonQuery();
 
-                        com.EndExecuteNonQuery(com.BeginExecuteNonQuery());
+
+                       
+
+                      //  com.EndExecuteNonQuery(com.BeginExecuteNonQuery());
 
                     }
-                    }
+                    
+                }
 
                     txtvno.Text = vno1.ToString();
 
@@ -1153,9 +1119,10 @@ namespace FINNSOFT
                 else
                 {
 
-                    MessageBox.Show("Process Completed");
+                    MessageBox.Show("Process Complete");
                     dateTimePicker1.Value = DateTime.Today;
                     btnclear_Click(null, null);
+                    //checkBox1.Checked = false;
                     txtvno.Select();
                 }
 
@@ -1244,9 +1211,12 @@ namespace FINNSOFT
         {
             if (e.KeyValue == 13)
             {
-                btnSave.Focus();
+                chqno.Focus();
+                
             }
         }
+        
+        
 
         private void btnclear_Click(object sender, EventArgs e)
         {
@@ -1308,7 +1278,7 @@ namespace FINNSOFT
                 {
                     qry = "select GL_L_Name,GLID+'-00' from TblGLmast where ANYSL = 0 and finyr = '" + Global.finyr + "' and Brcode = '" + Global.branch + "' and GLID = 1"; //Only Cash 
 
-                    qry1 = "select SL_L_NAME,GLID + '-' + SLID  from TblSLmast where finyr = '" + Global.finyr + "' and Brcode = '" + Global.branch + "' and GLID = 1 or slid=256 or slid=255"; //Only Cash and cash Eqivalent
+                    qry1 = "select SL_L_NAME,GLID + '-' + SLID  from TblSLmast where finyr = '" + Global.finyr + "' and Brcode = '" + Global.branch + "' and GLID in(1,6) or slid=256 or slid=255"; //Only Cash and cash Eqivalent
                
                 }
                 else if (vtype == "T")
@@ -1438,9 +1408,185 @@ namespace FINNSOFT
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            string GLID1;
+            string SLID1;
+            string GLID2;
+            string SLID2;
+            string GLID3;
+            string SLID3;
+            string GLID4;
+            string SLID4;
+
+            if (dataGridView1.RowCount > 0 && checkBox1.Checked == false)
+            {
+                
+
+                string str = lblbtype.Text;
+                string vtype = "";
+                if (str == "Journal")
+                    vtype = "J";
+                else if (str == "Payment")
+                    vtype = "Y";
+                else if (str == "Receipt")
+                    vtype = "R";
+                else if (str == "Contra")
+                    vtype = "T";
+                
+
+                int checkvno = Convert.ToInt32(txtvno.Text);
+
+                string Vnoqry = "select isnull(MAX(vno),0) from TblVOUCHER where TRANTYPE = '" + vtype + "' and brcode='" + Global.branch + "'";
+                SqlCommand VnoCom = new SqlCommand(Vnoqry, clsConnection.Conn);
+                string vno1 = Convert.ToString(VnoCom.ExecuteScalar());
+                int vno2 = Convert.ToInt32(vno1) + 1;
+                txtvno.Text = Convert.ToString(vno2);
+
+                dataGridView1.Rows.Clear();
+
+                GLID1 = "";
+                SLID1 = "";
+                lbltotcr.Text = "0.00";
+                lbltotdr.Text = "0.00";
+
+
+            }
+            else
+            {
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Focus();
+              //  dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                dataGridView1.Rows[0].Cells[0].Value = "By";
+                dataGridView1.Rows[0].Cells[3].Value = "RCM Input CGST";
+                dataGridView1.BeginEdit(true);
+                String qry = "select GLID,SLID from Tblslmast where brcode='" + Global.branch + "'and sl_l_name='RCM Input CGST'";
+                SqlDataReader sread = null;
+                SqlCommand cmd1 = new SqlCommand(qry, clsConnection.Conn);
+
+                sread = cmd1.ExecuteReader();
+
+                sread.Read();
+
+                GLID1 = Convert.ToString(sread.GetValue(0));
+                SLID1 = Convert.ToString(sread.GetValue(1));
+
+                sread.Close();
+
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["glid"].Value = GLID1;
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["slid"].Value = SLID1;
+
+               // cmd1.Parameters.AddWithValue("@glid", dataGridView1.Rows[0].Cells["glid"].Value);
+               // cmd1.Parameters.AddWithValue("@slid", dataGridView1.Rows[0].Cells["slid"].Value);
+          
+                dataGridView1.Rows.Add();
+                dataGridView1.Focus();
+             //   dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                dataGridView1.Rows[1].Cells[0].Value = "By";
+                dataGridView1.Rows[1].Cells[3].Value = "RCM Input SGST";
+                dataGridView1.BeginEdit(true);
+                String qry1 = "select GLID,SLID from Tblslmast where brcode='" + Global.branch + "'and sl_l_name='RCM Input SGST'";
+                SqlDataReader sread1 = null;
+                SqlCommand cmd2 = new SqlCommand(qry1, clsConnection.Conn);
+
+                sread1 = cmd2.ExecuteReader();
+
+                sread1.Read();
+
+                GLID2 = Convert.ToString(sread1.GetValue(0));
+                SLID2 = Convert.ToString(sread1.GetValue(1));
+
+                sread1.Close();
+
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["glid"].Value = GLID2;
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["slid"].Value = SLID2;
+
+                //cmd2.Parameters.AddWithValue("@glid", dataGridView1.Rows[1].Cells["glid"].Value);
+                //cmd2.Parameters.AddWithValue("@slid", dataGridView1.Rows[1].Cells["slid"].Value);
+                
+                dataGridView1.Rows.Add();
+                dataGridView1.Focus();
+               // dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                dataGridView1.Rows[2].Cells[0].Value = "To";
+                dataGridView1.Rows[2].Cells[3].Value = "CGST Payable";
+
+                dataGridView1.BeginEdit(true);
+                String qry2 = "select GLID,SLID from Tblslmast where brcode='" + Global.branch + "'and sl_l_name='CGST Payable'";
+                SqlDataReader sread2 = null;
+                SqlCommand cmd3 = new SqlCommand(qry2, clsConnection.Conn);
+
+                sread2 = cmd3.ExecuteReader();
+
+                sread2.Read();
+
+                GLID3 = Convert.ToString(sread2.GetValue(0));
+                SLID3= Convert.ToString(sread2.GetValue(1));
+
+                sread2.Close();
+
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["glid"].Value = GLID3;
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["slid"].Value = SLID3;
+
+                //cmd3.Parameters.AddWithValue("@glid", dataGridView1.Rows[2].Cells["glid"].Value);
+                //cmd3.Parameters.AddWithValue("@slid", dataGridView1.Rows[2].Cells["slid"].Value);
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Focus();
+              //  dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                dataGridView1.Rows[3].Cells[0].Value = "To";
+                dataGridView1.Rows[3].Cells[3].Value = "SGST Payable";
+
+                dataGridView1.BeginEdit(true);
+
+                String qry3 = "select GLID,SLID from Tblslmast where brcode='" + Global.branch + "'and sl_l_name='SGST Payable'";
+
+                SqlDataReader sread3 = null;
+                SqlCommand cmd4 = new SqlCommand(qry3, clsConnection.Conn);
+
+                sread3 = cmd4.ExecuteReader();
+
+                sread3.Read();
+
+                GLID4 = Convert.ToString(sread3.GetValue(0));
+                SLID4 = Convert.ToString(sread3.GetValue(1));
+
+                sread3.Close();
+
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["glid"].Value = GLID4;
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["slid"].Value = SLID4;
+                
+                //cmd3.Parameters.AddWithValue("@glid", dataGridView1.Rows[3].Cells["glid"].Value);
+                //cmd3.Parameters.AddWithValue("@slid", dataGridView1.Rows[3].Cells["slid"].Value);
+        
+                panel1.Visible = false;
+                txtvno.Focus();
+
+            }
+        }
+
+        private void chqno_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                issuedt.Focus();
+
+            }
+        }
+
+        private void issuedt_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                btnSave.Focus();
+
+            }
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
     }
 }
+

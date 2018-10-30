@@ -21,7 +21,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <HockeyAppResourceId>1375e8fded134e7cb620cd2777a8a0c6</HockeyAppResourceId>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Finsoft2017\Publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -31,9 +31,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -78,32 +80,75 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>541A07C60EF10CD548D02AA4F710F7F0A529379D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>FINNSOFT_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.8\managed\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    <Reference Include="CRVsPackageLib, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.VSDesigner, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.8\managed\CrystalDecisions.VSDesigner.dll</HintPath>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.VSDesigner, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net40\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net40\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net40\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -115,6 +160,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BAL\clsGLBAL.cs" />
@@ -140,16 +187,60 @@
     <Compile Include="frmFinyr.Designer.cs">
       <DependentUpon>frmFinyr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\Analysis.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Analysis.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\Analysis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Analysis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\Analysis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Analysis.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\Datasets\PL1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Datasets\TBLSALESANALYSI.cs">
+      <DependentUpon>Analysis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="roundbutton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StartMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartMenu.Designer.cs">
+      <DependentUpon>StartMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmCreditorInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FrmCreditorInvoice.Designer.cs">
       <DependentUpon>FrmCreditorInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmGraphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmGraphs.Designer.cs">
+      <DependentUpon>FrmGraphs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmGridTrial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmGridTrial.Designer.cs">
+      <DependentUpon>FrmGridTrial.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmInvCorrection.cs">
       <SubType>Form</SubType>
@@ -234,6 +325,12 @@
     <Compile Include="UI\frmReportViewer.designer.cs">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmStmntImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmStmntImport.Designer.cs">
+      <DependentUpon>FrmStmntImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmTrial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +342,12 @@
     </Compile>
     <Compile Include="UI\frmVoucher.designer.cs">
       <DependentUpon>frmVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmVoucherAlt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmVoucherAlt.Designer.cs">
+      <DependentUpon>FrmVoucherAlt.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmVoucherPrint.cs">
       <SubType>Form</SubType>
@@ -278,6 +381,7 @@
     </Compile>
     <EmbeddedResource Include="DashBoardMenu.resx">
       <DependentUpon>DashBoardMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFinyr.resx">
       <DependentUpon>frmFinyr.cs</DependentUpon>
@@ -288,8 +392,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\rptBalan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -315,8 +419,20 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Trial.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartMenu.resx">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmCreditorInvoice.resx">
       <DependentUpon>FrmCreditorInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmDaybook.resx">
+      <DependentUpon>frmDaybook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmGraphs.resx">
+      <DependentUpon>FrmGraphs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmGridTrial.resx">
+      <DependentUpon>FrmGridTrial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmInvCorrection.resx">
       <DependentUpon>frmInvCorrection.cs</DependentUpon>
@@ -351,11 +467,6 @@
     <EmbeddedResource Include="UI\frmLedgerVoucher.resx">
       <DependentUpon>frmLedgerVoucher.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\frmPL.resx">
       <DependentUpon>frmPL.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,11 +476,17 @@
     <EmbeddedResource Include="UI\frmSLMast.resx">
       <DependentUpon>frmSLMast.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmStmntImport.resx">
+      <DependentUpon>FrmStmntImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmTrial.resx">
       <DependentUpon>frmTrial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmVoucher.resx">
       <DependentUpon>frmVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmVoucherAlt.resx">
+      <DependentUpon>FrmVoucherAlt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmVoucherPrint.resx">
       <DependentUpon>FrmVoucherPrint.cs</DependentUpon>
@@ -396,6 +513,8 @@
     <None Include="CreditorInvMaster.xss">
       <DependentUpon>CreditorInvMaster.xsd</DependentUpon>
     </None>
+    <None Include="FINNSOFT_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -494,6 +613,13 @@
     <Compile Include="UI\frmSLMast.Designer.cs">
       <DependentUpon>frmSLMast.cs</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Reporting\Datasets\Analysis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Analysis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Reporting\Datasets\Analysis.edmx.diagram">
+      <DependentUpon>Analysis.edmx</DependentUpon>
+    </None>
     <None Include="Reporting\Datasets\Branch.xsc">
       <DependentUpon>Branch.xsd</DependentUpon>
     </None>
@@ -563,6 +689,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
@@ -579,33 +706,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="CRDESIGNERLib">
-      <Guid>{C0AA5023-C763-4A4B-AFED-ADCF78D6C08B}</Guid>
-      <VersionMajor>13</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="CrystalActiveXReportViewerLib13">
-      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
-      <VersionMajor>13</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="CrystalReportViewerExportLib">
-      <Guid>{5C21A516-C6AC-42F2-A7B7-846FFE1B122A}</Guid>
-      <VersionMajor>13</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -722,6 +822,39 @@
     <None Include="Resources\Sign In.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\icons8-plus-50.png" />
+    <None Include="Resources\Journal.png" />
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Accounting-Calculator-icon.png" />
+    <None Include="Resources\All-software-is-current.png" />
+    <None Include="Resources\App-10-128.png" />
+    <None Include="Resources\Applications-icon %281%29.png" />
+    <None Include="Resources\Applications-icon.png" />
+    <None Include="Resources\Apps-basket-icon.png" />
+    <None Include="Resources\Apps-firefox-icon.png" />
+    <None Include="Resources\Apps-preferences-desktop-cryptography-icon.png" />
+    <None Include="Resources\Apps-preferences-desktop-user-password-icon.png" />
+    <None Include="Resources\Apps-system-users-icon.png" />
+    <None Include="Resources\Business.png" />
+    <None Include="Resources\cabinet.png" />
+    <None Include="Resources\Gnome-Software-Update-Urgent-64.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\Leaf.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\Office_Business_work-09-128.png" />
+    <None Include="Resources\Other_Antivirus_Software.png" />
+    <None Include="Resources\safety_box.png" />
+    <None Include="Resources\Service-Manager.png" />
+    <None Include="Resources\software-update-urgent-128.png" />
+    <Content Include="Reporting\Datasets\Analysis.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Analysis.Context.cs</LastGenOutput>
+      <DependentUpon>Analysis.edmx</DependentUpon>
+    </Content>
+    <Content Include="Reporting\Datasets\Analysis.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Analysis.edmx</DependentUpon>
+      <LastGenOutput>Analysis.cs</LastGenOutput>
+    </Content>
     <Content Include="USBDrive.ico" />
   </ItemGroup>
   <ItemGroup>

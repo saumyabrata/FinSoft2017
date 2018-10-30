@@ -13,7 +13,7 @@ using CrystalDecisions.Shared;
 
 namespace FINNSOFT
 {
-    public partial class frmDaybook : Form
+    public partial class frmDaybook : MetroFramework.Forms.MetroForm
     {
         string vtype_list1 = "";
         public frmDaybook()
@@ -26,7 +26,6 @@ namespace FINNSOFT
             dtpFrom.Value = System.DateTime.Today;//Global.gFromDt;
             dtpTo.Value = System.DateTime.Today;//Global.gToDt;
 
-            label3.Text = "";//Global.branch;
         }
 
         private void listBox1_Click(object sender, EventArgs e)

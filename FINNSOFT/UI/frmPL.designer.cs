@@ -51,14 +51,14 @@
             this.lblase = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mskTo = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.mskFrom = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblDt = new System.Windows.Forms.Label();
             this.lblAsAt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mskFrom = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.mskTo = new System.Windows.Forms.MaskedTextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -310,6 +310,43 @@
             this.panel1.Size = new System.Drawing.Size(794, 485);
             this.panel1.TabIndex = 2;
             // 
+            // mskTo
+            // 
+            this.mskTo.Location = new System.Drawing.Point(258, 429);
+            this.mskTo.Mask = "##/##/####";
+            this.mskTo.Name = "mskTo";
+            this.mskTo.Size = new System.Drawing.Size(113, 20);
+            this.mskTo.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(229, 430);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 15);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "To";
+            // 
+            // mskFrom
+            // 
+            this.mskFrom.Location = new System.Drawing.Point(51, 429);
+            this.mskFrom.Mask = "##/##/####";
+            this.mskFrom.Name = "mskFrom";
+            this.mskFrom.Size = new System.Drawing.Size(119, 20);
+            this.mskFrom.TabIndex = 17;
+            this.mskFrom.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 429);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "From";
+            // 
             // lblDt
             // 
             this.lblDt.AutoSize = true;
@@ -349,49 +386,13 @@
             this.lblCompany.Text = "Company Name";
             this.lblCompany.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 429);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "From";
-            // 
-            // mskFrom
-            // 
-            this.mskFrom.Location = new System.Drawing.Point(51, 429);
-            this.mskFrom.Mask = "##/##/####";
-            this.mskFrom.Name = "mskFrom";
-            this.mskFrom.Size = new System.Drawing.Size(119, 20);
-            this.mskFrom.TabIndex = 17;
-            this.mskFrom.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(229, 430);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 15);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "To";
-            // 
-            // mskTo
-            // 
-            this.mskTo.Location = new System.Drawing.Point(258, 429);
-            this.mskTo.Mask = "##/##/####";
-            this.mskTo.Name = "mskTo";
-            this.mskTo.Size = new System.Drawing.Size(113, 20);
-            this.mskTo.TabIndex = 19;
-            // 
             // frmPL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 508);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "frmPL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profit and Loss";

@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.VNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VoucherType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvVNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LedgerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Narr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChqNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toDt = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.frmDt = new System.Windows.Forms.DateTimePicker();
@@ -51,15 +57,8 @@
             this.LblDr = new System.Windows.Forms.Label();
             this.LblCr = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.VNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VoucherType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InvVNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LedgerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Narr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +77,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 30;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VNO,
@@ -89,197 +87,26 @@
             this.LedgerName,
             this.Debit,
             this.Credit,
-            this.Narr});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 144);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.Narr,
+            this.ChqNo,
+            this.IssueDate});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 175);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.Size = new System.Drawing.Size(1795, 646);
+            this.dataGridView1.Size = new System.Drawing.Size(1346, 486);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // toDt
-            // 
-            this.toDt.CustomFormat = "dd/MM/yyyy";
-            this.toDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.toDt.Location = new System.Drawing.Point(395, 97);
-            this.toDt.Margin = new System.Windows.Forms.Padding(4);
-            this.toDt.Name = "toDt";
-            this.toDt.Size = new System.Drawing.Size(127, 22);
-            this.toDt.TabIndex = 17;
-            this.toDt.Value = new System.DateTime(2017, 7, 13, 0, 0, 0, 0);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(311, 97);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 20);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "To Date";
-            // 
-            // frmDt
-            // 
-            this.frmDt.CustomFormat = "dd/MM/yyyy";
-            this.frmDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.frmDt.Location = new System.Drawing.Point(145, 97);
-            this.frmDt.Margin = new System.Windows.Forms.Padding(4);
-            this.frmDt.Name = "frmDt";
-            this.frmDt.Size = new System.Drawing.Size(136, 22);
-            this.frmDt.TabIndex = 15;
-            this.frmDt.Value = new System.DateTime(2017, 2, 21, 0, 0, 0, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 97);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "From Date";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 20);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Report Type";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Total Voucher",
-            "Only This Ledger"});
-            this.comboBox1.Location = new System.Drawing.Point(145, 55);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 28);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // cmbLedger
-            // 
-            this.cmbLedger.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbLedger.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLedger.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLedger.FormattingEnabled = true;
-            this.cmbLedger.Location = new System.Drawing.Point(145, 22);
-            this.cmbLedger.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbLedger.Name = "cmbLedger";
-            this.cmbLedger.Size = new System.Drawing.Size(376, 28);
-            this.cmbLedger.TabIndex = 11;
-            this.cmbLedger.SelectedIndexChanged += new System.EventHandler(this.cmbLedger_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Ledger Name";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(924, 94);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 28);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(924, 53);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 28);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Show Report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(20, 804);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(263, 37);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Transfer to Excel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Maroon;
-            this.label5.Location = new System.Drawing.Point(519, 801);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Total:\r\n";
-            // 
-            // LblDr
-            // 
-            this.LblDr.AutoSize = true;
-            this.LblDr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDr.ForeColor = System.Drawing.Color.Maroon;
-            this.LblDr.Location = new System.Drawing.Point(759, 801);
-            this.LblDr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblDr.Name = "LblDr";
-            this.LblDr.Size = new System.Drawing.Size(0, 20);
-            this.LblDr.TabIndex = 22;
-            // 
-            // LblCr
-            // 
-            this.LblCr.AutoSize = true;
-            this.LblCr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCr.ForeColor = System.Drawing.Color.Maroon;
-            this.LblCr.Location = new System.Drawing.Point(920, 801);
-            this.LblCr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblCr.Name = "LblCr";
-            this.LblCr.Size = new System.Drawing.Size(0, 20);
-            this.LblCr.TabIndex = 23;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(315, 65);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 17);
-            this.label7.TabIndex = 24;
-            this.label7.Visible = false;
             // 
             // VNO
             // 
@@ -290,20 +117,12 @@
             // 
             // VDT
             // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.VDT.DefaultCellStyle = dataGridViewCellStyle2;
             this.VDT.HeaderText = "V Date";
             this.VDT.Name = "VDT";
             this.VDT.ReadOnly = true;
             // 
             // VoucherType
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            this.VoucherType.DefaultCellStyle = dataGridViewCellStyle3;
             this.VoucherType.HeaderText = "VoucherType";
             this.VoucherType.Name = "VoucherType";
             this.VoucherType.ReadOnly = true;
@@ -318,10 +137,6 @@
             // 
             // InvVNO
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.NullValue = null;
-            this.InvVNO.DefaultCellStyle = dataGridViewCellStyle4;
             this.InvVNO.HeaderText = "INV V NO";
             this.InvVNO.Name = "InvVNO";
             this.InvVNO.ReadOnly = true;
@@ -335,12 +150,6 @@
             // 
             // Debit
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Debit.DefaultCellStyle = dataGridViewCellStyle5;
             this.Debit.HeaderText = "Debit";
             this.Debit.Name = "Debit";
             this.Debit.ReadOnly = true;
@@ -348,11 +157,6 @@
             // 
             // Credit
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Credit.DefaultCellStyle = dataGridViewCellStyle6;
             this.Credit.HeaderText = "Credit";
             this.Credit.Name = "Credit";
             this.Credit.ReadOnly = true;
@@ -365,11 +169,217 @@
             this.Narr.ReadOnly = true;
             this.Narr.Width = 500;
             // 
+            // ChqNo
+            // 
+            this.ChqNo.HeaderText = "Chq No";
+            this.ChqNo.Name = "ChqNo";
+            this.ChqNo.ReadOnly = true;
+            // 
+            // IssueDate
+            // 
+            this.IssueDate.HeaderText = "Issue Date";
+            this.IssueDate.Name = "IssueDate";
+            this.IssueDate.ReadOnly = true;
+            // 
+            // toDt
+            // 
+            this.toDt.CustomFormat = "dd/MM/yyyy";
+            this.toDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.toDt.Location = new System.Drawing.Point(299, 140);
+            this.toDt.Name = "toDt";
+            this.toDt.Size = new System.Drawing.Size(96, 20);
+            this.toDt.TabIndex = 17;
+            this.toDt.Value = new System.DateTime(2017, 7, 13, 0, 0, 0, 0);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(236, 140);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "To Date";
+            // 
+            // frmDt
+            // 
+            this.frmDt.CustomFormat = "dd/MM/yyyy";
+            this.frmDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.frmDt.Location = new System.Drawing.Point(112, 140);
+            this.frmDt.Name = "frmDt";
+            this.frmDt.Size = new System.Drawing.Size(103, 20);
+            this.frmDt.TabIndex = 15;
+            this.frmDt.Value = new System.DateTime(2017, 2, 21, 0, 0, 0, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 140);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "From Date";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Report Type";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Total Voucher",
+            "Only This Ledger"});
+            this.comboBox1.Location = new System.Drawing.Point(112, 106);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // cmbLedger
+            // 
+            this.cmbLedger.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbLedger.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLedger.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLedger.FormattingEnabled = true;
+            this.cmbLedger.Location = new System.Drawing.Point(112, 79);
+            this.cmbLedger.Name = "cmbLedger";
+            this.cmbLedger.Size = new System.Drawing.Size(283, 24);
+            this.cmbLedger.TabIndex = 11;
+            this.cmbLedger.SelectedIndexChanged += new System.EventHandler(this.cmbLedger_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Ledger Name";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(860, 131);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(158, 42);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Exit";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(532, 129);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 44);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Generate Report";
+            this.button1.UseMnemonic = false;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(696, 131);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(158, 40);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Transfer to Excel";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Maroon;
+            this.label5.Location = new System.Drawing.Point(393, 677);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 16);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Total:\r\n";
+            // 
+            // LblDr
+            // 
+            this.LblDr.AutoSize = true;
+            this.LblDr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDr.ForeColor = System.Drawing.Color.Maroon;
+            this.LblDr.Location = new System.Drawing.Point(572, 712);
+            this.LblDr.Name = "LblDr";
+            this.LblDr.Size = new System.Drawing.Size(0, 16);
+            this.LblDr.TabIndex = 22;
+            // 
+            // LblCr
+            // 
+            this.LblCr.AutoSize = true;
+            this.LblCr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCr.ForeColor = System.Drawing.Color.Maroon;
+            this.LblCr.Location = new System.Drawing.Point(693, 712);
+            this.LblCr.Name = "LblCr";
+            this.LblCr.Size = new System.Drawing.Size(0, 16);
+            this.LblCr.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label7.Location = new System.Drawing.Point(239, 114);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Maroon;
+            this.label6.Location = new System.Drawing.Point(460, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 16);
+            this.label6.TabIndex = 25;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Maroon;
+            this.label8.Location = new System.Drawing.Point(460, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 16);
+            this.label8.TabIndex = 26;
+            // 
             // frm_Details_Ledger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1827, 844);
+            this.ClientSize = new System.Drawing.Size(1370, 763);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.LblCr);
             this.Controls.Add(this.LblDr);
@@ -386,9 +396,8 @@
             this.Controls.Add(this.cmbLedger);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "frm_Details_Ledger";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transaction Details";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_Details_Ledger_Load);
@@ -416,6 +425,8 @@
         private System.Windows.Forms.Label LblDr;
         private System.Windows.Forms.Label LblCr;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn VNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn VDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn VoucherType;
@@ -425,5 +436,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Debit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Credit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Narr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChqNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueDate;
     }
 }

@@ -11,7 +11,7 @@ using FINNSOFT.UI;
 
 namespace FINNSOFT.UI
 {
-    public partial class FrmCreditorInvoice : Form
+    public partial class FrmCreditorInvoice : MetroFramework.Forms.MetroForm
     {
         public FrmCreditorInvoice()
         {
@@ -537,6 +537,11 @@ namespace FINNSOFT.UI
                 txtigst.SelectAll();
                 txtigst.Focus();
             }
+        }
+
+        private void FrmCreditorInvoice_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

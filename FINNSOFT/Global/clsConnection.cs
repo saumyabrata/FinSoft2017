@@ -37,12 +37,12 @@ namespace FINNSOFT
                 Conn = new SqlConnection();
                 if (AuthMode == "Windows Authentication")
                 {
-                    Conn.ConnectionString = "Data Source=" + InsName + ";Initial Catalog=" + DbName + ";Integrated Security=True;Asynchronous Processing=true";
+                    Conn.ConnectionString = "Data Source=" + InsName + ";Initial Catalog=" + DbName + ";Integrated Security=True;Asynchronous Processing=true;MultipleActiveResultSets=true";
 
                 }
                 else
                 {
-                    Conn.ConnectionString = "Data Source=" + InsName + ";Initial Catalog=" + DbName + ";UID=" + UID + ";password=" + Pwd + "; Asynchronous Processing=true";
+                    Conn.ConnectionString = "Data Source=" + InsName + ";Initial Catalog=" + DbName + ";UID=" + UID + ";password=" + Pwd + "; Asynchronous Processing=true;MultipleActiveResultSets=true";
                 }
                 Conn.Open();
                 setDBDateFormat();

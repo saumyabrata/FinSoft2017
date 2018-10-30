@@ -28,198 +28,219 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtpass = new System.Windows.Forms.TextBox();
+            this.txtlogin = new System.Windows.Forms.TextBox();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.bttnstart = new System.Windows.Forms.Button();
+            this.cmbofinyr = new MetroFramework.Controls.MetroComboBox();
+            this.cmbobranch = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // txtpass
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(732, 313);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Login";
+            this.txtpass.AcceptsReturn = true;
+            this.txtpass.AcceptsTab = true;
+            this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpass.ForeColor = System.Drawing.Color.Black;
+            this.txtpass.Location = new System.Drawing.Point(357, 95);
+            this.txtpass.MaxLength = 12;
+            this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
+            this.txtpass.Size = new System.Drawing.Size(205, 23);
+            this.txtpass.TabIndex = 2;
+            this.metroToolTip1.SetToolTip(this.txtpass, "Enter your Password");
+            // 
+            // txtlogin
+            // 
+            this.txtlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlogin.Location = new System.Drawing.Point(357, 50);
+            this.txtlogin.Name = "txtlogin";
+            this.txtlogin.Size = new System.Drawing.Size(205, 23);
+            this.txtlogin.TabIndex = 1;
+            this.metroToolTip1.SetToolTip(this.txtlogin, "Enter Your UserID");
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.pictureBox1);
+            this.metroPanel1.Controls.Add(this.bttnstart);
+            this.metroPanel1.Controls.Add(this.cmbofinyr);
+            this.metroPanel1.Controls.Add(this.cmbobranch);
+            this.metroPanel1.Controls.Add(this.metroLabel4);
+            this.metroPanel1.Controls.Add(this.metroLabel3);
+            this.metroPanel1.Controls.Add(this.metroLabel2);
+            this.metroPanel1.Controls.Add(this.metroLabel1);
+            this.metroPanel1.Controls.Add(this.txtpass);
+            this.metroPanel1.Controls.Add(this.txtlogin);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(18, 75);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(715, 278);
+            this.metroPanel1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroPanel1.TabIndex = 10;
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::FINNSOFT.Properties.Resources.User;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 91);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Image = global::FINNSOFT.Properties.Resources.Apps_preferences_desktop_user_password_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 43);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 121);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 165);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // bttnstart
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::FINNSOFT.Properties.Resources.WindowsMPSZ;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(589, 193);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 50);
-            this.button1.TabIndex = 16;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bttnstart.BackColor = System.Drawing.Color.Black;
+            this.bttnstart.BackgroundImage = global::FINNSOFT.Properties.Resources.All_software_is_current;
+            this.bttnstart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bttnstart.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.bttnstart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttnstart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.bttnstart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bttnstart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttnstart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bttnstart.Location = new System.Drawing.Point(589, 143);
+            this.bttnstart.Name = "bttnstart";
+            this.bttnstart.Size = new System.Drawing.Size(66, 69);
+            this.bttnstart.TabIndex = 5;
+            this.metroToolTip1.SetToolTip(this.bttnstart, "Click to Sign-in...");
+            this.bttnstart.UseVisualStyleBackColor = false;
+            this.bttnstart.Click += new System.EventHandler(this.bttnstart_Click);
             // 
-            // comboBox2
+            // cmbofinyr
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(371, 218);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 28);
-            this.comboBox2.TabIndex = 15;
+            this.cmbofinyr.FormattingEnabled = true;
+            this.cmbofinyr.ItemHeight = 23;
+            this.cmbofinyr.Location = new System.Drawing.Point(357, 183);
+            this.cmbofinyr.Name = "cmbofinyr";
+            this.cmbofinyr.Size = new System.Drawing.Size(205, 29);
+            this.cmbofinyr.TabIndex = 4;
+            this.cmbofinyr.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToolTip1.SetToolTip(this.cmbofinyr, "Select Financial Year");
             // 
-            // label4
+            // cmbobranch
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(181, 220);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 25);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Financial Year -";
+            this.cmbobranch.FormattingEnabled = true;
+            this.cmbobranch.ItemHeight = 23;
+            this.cmbobranch.Location = new System.Drawing.Point(357, 136);
+            this.cmbobranch.Name = "cmbobranch";
+            this.cmbobranch.Size = new System.Drawing.Size(205, 29);
+            this.cmbobranch.TabIndex = 3;
+            this.cmbobranch.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToolTip1.SetToolTip(this.cmbobranch, "Select Branch");
+            this.cmbobranch.SelectedIndexChanged += new System.EventHandler(this.cmbobranch_SelectedIndexChanged);
             // 
-            // label3
+            // metroLabel4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(181, 172);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 25);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Branch -";
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.ForeColor = System.Drawing.Color.White;
+            this.metroLabel4.Location = new System.Drawing.Point(190, 183);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(125, 25);
+            this.metroLabel4.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel4.TabIndex = 20;
+            this.metroLabel4.Text = "Financial Year :";
+            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // comboBox1
+            // metroLabel3
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(371, 171);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 28);
-            this.comboBox1.TabIndex = 12;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel3.ForeColor = System.Drawing.Color.White;
+            this.metroLabel3.Location = new System.Drawing.Point(190, 140);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(74, 25);
+            this.metroLabel3.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel3.TabIndex = 19;
+            this.metroLabel3.Text = "Branch :";
+            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // textBox2
+            // metroLabel2
             // 
-            this.textBox2.AcceptsReturn = true;
-            this.textBox2.AcceptsTab = true;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(371, 123);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.MaxLength = 12;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(272, 27);
-            this.textBox2.TabIndex = 11;
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel2.ForeColor = System.Drawing.Color.White;
+            this.metroLabel2.Location = new System.Drawing.Point(190, 95);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(96, 25);
+            this.metroLabel2.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel2.TabIndex = 18;
+            this.metroLabel2.Text = "Password :";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // textBox1
+            // metroLabel1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(371, 74);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(272, 27);
-            this.textBox1.TabIndex = 10;
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.ForeColor = System.Drawing.Color.White;
+            this.metroLabel1.Location = new System.Drawing.Point(190, 48);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(108, 25);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "User Name :";
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // label2
+            // metroToolTip1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(181, 123);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Password -";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(181, 74);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "User Name -";
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(764, 340);
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.ClientSize = new System.Drawing.Size(744, 372);
+            this.Controls.Add(this.metroPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "FrmLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Text = "User Login";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bttnstart;
+        private System.Windows.Forms.TextBox txtpass;
+        private System.Windows.Forms.TextBox txtlogin;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroComboBox cmbofinyr;
+        private MetroFramework.Controls.MetroComboBox cmbobranch;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

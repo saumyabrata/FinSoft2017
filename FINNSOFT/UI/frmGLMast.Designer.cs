@@ -47,9 +47,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listGL = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listGL = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,8 +66,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.txtNarration);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnClose);
@@ -84,7 +83,8 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(14, 15);
+            this.panel1.ForeColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(20, 73);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(460, 457);
             this.panel1.TabIndex = 2;
@@ -99,6 +99,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(17, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 16);
@@ -186,6 +187,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(17, 301);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 16);
@@ -195,6 +197,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(17, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 16);
@@ -204,6 +207,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(17, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
@@ -213,6 +217,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(17, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 16);
@@ -222,6 +227,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(17, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 16);
@@ -230,35 +236,13 @@
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.listGL);
-            this.panel2.Location = new System.Drawing.Point(486, 15);
+            this.panel2.Location = new System.Drawing.Point(486, 73);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 457);
             this.panel2.TabIndex = 3;
-            // 
-            // listGL
-            // 
-            this.listGL.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.listGL.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listGL.ForeColor = System.Drawing.Color.DarkBlue;
-            this.listGL.FormattingEnabled = true;
-            this.listGL.ItemHeight = 16;
-            this.listGL.Location = new System.Drawing.Point(8, 32);
-            this.listGL.Name = "listGL";
-            this.listGL.Size = new System.Drawing.Size(284, 420);
-            this.listGL.TabIndex = 0;
-            this.listGL.Click += new System.EventHandler(this.listGL_Click);
-            this.listGL.SelectedIndexChanged += new System.EventHandler(this.listGL_SelectedIndexChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(8, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 22);
-            this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
@@ -273,20 +257,39 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(8, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(255, 22);
+            this.textBox1.TabIndex = 1;
+            // 
+            // listGL
+            // 
+            this.listGL.BackColor = System.Drawing.Color.White;
+            this.listGL.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listGL.ForeColor = System.Drawing.Color.Black;
+            this.listGL.FormattingEnabled = true;
+            this.listGL.ItemHeight = 16;
+            this.listGL.Location = new System.Drawing.Point(8, 32);
+            this.listGL.Name = "listGL";
+            this.listGL.Size = new System.Drawing.Size(284, 420);
+            this.listGL.TabIndex = 0;
+            this.listGL.Click += new System.EventHandler(this.listGL_Click);
+            this.listGL.SelectedIndexChanged += new System.EventHandler(this.listGL_SelectedIndexChanged);
+            // 
             // frmGLMast
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(803, 487);
+            this.ClientSize = new System.Drawing.Size(812, 547);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial Narrow", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmGLMast";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Group Ledger Master";
             this.Load += new System.EventHandler(this.frmGLMast_Load);
             this.panel1.ResumeLayout(false);

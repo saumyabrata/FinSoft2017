@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace FINNSOFT.UI
 {
-    public partial class frmBackupRestore : Form
+    public partial class frmBackupRestore : MetroFramework.Forms.MetroForm
     {
         public frmBackupRestore()
         {

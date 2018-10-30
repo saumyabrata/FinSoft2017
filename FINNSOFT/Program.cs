@@ -15,7 +15,6 @@ namespace FINNSOFT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainMenu());
             //Application.Run(new UI.FrmLogin());
             var start = new UI.FrmLogin();
             start.FormClosed += WindowClosed;

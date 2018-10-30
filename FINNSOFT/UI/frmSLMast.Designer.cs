@@ -52,6 +52,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtRem = new System.Windows.Forms.TextBox();
             this.txtContact = new System.Windows.Forms.TextBox();
             this.txtFax = new System.Windows.Forms.TextBox();
@@ -64,8 +66,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,7 +92,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(23, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(419, 198);
             this.panel1.TabIndex = 0;
@@ -249,7 +249,7 @@
             this.panel2.Controls.Add(this.listSub);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(437, 12);
+            this.panel2.Location = new System.Drawing.Point(448, 63);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 493);
             this.panel2.TabIndex = 1;
@@ -278,7 +278,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(68, 260);
+            this.label8.Location = new System.Drawing.Point(58, 260);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(145, 13);
             this.label8.TabIndex = 6;
@@ -307,10 +307,27 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Location = new System.Drawing.Point(12, 216);
+            this.panel3.Location = new System.Drawing.Point(23, 267);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(419, 207);
             this.panel3.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(265, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(133, 20);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(210, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "GSTIN No";
             // 
             // txtRem
             // 
@@ -381,16 +398,19 @@
             this.panel4.Controls.Add(this.btnClose);
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.btnNew);
-            this.panel4.Location = new System.Drawing.Point(12, 429);
+            this.panel4.Location = new System.Drawing.Point(23, 480);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(419, 76);
             this.panel4.TabIndex = 3;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(246, 27);
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnClose.Location = new System.Drawing.Point(280, 15);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(107, 45);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -398,9 +418,12 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(165, 27);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnSave.Location = new System.Drawing.Point(156, 15);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(110, 45);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -408,44 +431,28 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(84, 27);
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnNew.Location = new System.Drawing.Point(29, 15);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.Size = new System.Drawing.Size(111, 45);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "&New";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(265, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 20);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.Text = "0";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(210, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "GSTIN No";
-            // 
             // frmSLMast
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 517);
+            this.ClientSize = new System.Drawing.Size(715, 573);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSLMast";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sub Ledger Master";
             this.Load += new System.EventHandler(this.frmSLMast_Load);
             this.panel1.ResumeLayout(false);

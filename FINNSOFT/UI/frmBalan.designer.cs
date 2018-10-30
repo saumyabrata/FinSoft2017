@@ -51,14 +51,13 @@
             this.lblase = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mskTo = new System.Windows.Forms.MaskedTextBox();
+            this.mskFrom = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblDt = new System.Windows.Forms.Label();
             this.lblAsAt = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.mskFrom = new System.Windows.Forms.MaskedTextBox();
-            this.mskTo = new System.Windows.Forms.MaskedTextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -308,13 +307,50 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.lblAsAt);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblCompany);
             this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(23, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 485);
             this.panel1.TabIndex = 1;
+            // 
+            // mskTo
+            // 
+            this.mskTo.Location = new System.Drawing.Point(287, 429);
+            this.mskTo.Mask = "##/##/####";
+            this.mskTo.Name = "mskTo";
+            this.mskTo.Size = new System.Drawing.Size(110, 20);
+            this.mskTo.TabIndex = 19;
+            // 
+            // mskFrom
+            // 
+            this.mskFrom.Location = new System.Drawing.Point(88, 429);
+            this.mskFrom.Mask = "##/##/####";
+            this.mskFrom.Name = "mskFrom";
+            this.mskFrom.Size = new System.Drawing.Size(113, 20);
+            this.mskFrom.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(261, 432);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 15);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "To";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(30, 432);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "From";
             // 
             // lblDt
             // 
@@ -328,23 +364,12 @@
             // lblAsAt
             // 
             this.lblAsAt.ForeColor = System.Drawing.Color.Black;
-            this.lblAsAt.Location = new System.Drawing.Point(3, 49);
+            this.lblAsAt.Location = new System.Drawing.Point(6, 37);
             this.lblAsAt.Name = "lblAsAt";
             this.lblAsAt.Size = new System.Drawing.Size(783, 16);
             this.lblAsAt.TabIndex = 2;
             this.lblAsAt.Text = "AS AT";
             this.lblAsAt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(788, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "BALANCE SHEET";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblCompany
             // 
@@ -357,53 +382,14 @@
             this.lblCompany.Text = "Company Name";
             this.lblCompany.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(30, 432);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "From";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(261, 432);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 15);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "To";
-            // 
-            // mskFrom
-            // 
-            this.mskFrom.Location = new System.Drawing.Point(88, 429);
-            this.mskFrom.Mask = "##/##/####";
-            this.mskFrom.Name = "mskFrom";
-            this.mskFrom.Size = new System.Drawing.Size(113, 20);
-            this.mskFrom.TabIndex = 18;
-            // 
-            // mskTo
-            // 
-            this.mskTo.Location = new System.Drawing.Point(287, 429);
-            this.mskTo.Mask = "##/##/####";
-            this.mskTo.Name = "mskTo";
-            this.mskTo.Size = new System.Drawing.Size(110, 20);
-            this.mskTo.TabIndex = 19;
-            // 
             // frmBalan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(819, 508);
+            this.ClientSize = new System.Drawing.Size(843, 573);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "frmBalan";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Balance Sheet";
             this.Load += new System.EventHandler(this.frmBalan_Load);
             this.panel2.ResumeLayout(false);
@@ -445,7 +431,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblDt;
         private System.Windows.Forms.Label lblAsAt;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;

@@ -61,7 +61,7 @@
             this.panel1.Controls.Add(this.cmbViewType);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(15, 13);
+            this.panel1.Location = new System.Drawing.Point(23, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(583, 403);
             this.panel1.TabIndex = 2;
@@ -137,6 +137,7 @@
             // 
             // cmbViewType
             // 
+            this.cmbViewType.BackColor = System.Drawing.Color.White;
             this.cmbViewType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbViewType.FormattingEnabled = true;
             this.cmbViewType.Items.AddRange(new object[] {
@@ -167,7 +168,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Bisque;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ledger,
@@ -222,7 +223,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label1.Location = new System.Drawing.Point(197, 432);
+            this.label1.Location = new System.Drawing.Point(197, 480);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 13);
             this.label1.TabIndex = 3;
@@ -232,11 +233,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 459);
+            this.ClientSize = new System.Drawing.Size(631, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "frmLedgerList";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ledger List";
             this.Load += new System.EventHandler(this.frmLedgerList_Load);
             this.panel1.ResumeLayout(false);

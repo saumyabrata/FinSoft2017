@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace FINNSOFT
 {
-    public partial class frmGLMast : Form
+    public partial class frmGLMast : MetroFramework.Forms.MetroForm
     {
         public frmGLMast()
         {

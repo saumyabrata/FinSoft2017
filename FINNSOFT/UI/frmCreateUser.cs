@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace FINNSOFT
 {
-    public partial class frmCreateUser : Form
+    public partial class frmCreateUser : MetroFramework.Forms.MetroForm
     {
         public frmCreateUser()
         {
@@ -177,6 +177,11 @@ namespace FINNSOFT
             txtusrname.Text = "";
             txtpasswd.Text = "";
             cmbRole.Text = "";
+        }
+
+        private void frmCreateUser_Load(object sender, EventArgs e)
+        {
+
         }
     }
     }

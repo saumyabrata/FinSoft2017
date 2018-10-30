@@ -13,7 +13,7 @@ using CrystalDecisions.Shared;
 
 namespace FINNSOFT
 {
-    public partial class frmVoucherReport : Form
+    public partial class frmVoucherReport : MetroFramework.Forms.MetroForm
     {
         public frmVoucherReport()
         {
@@ -102,14 +102,14 @@ namespace FINNSOFT
                 if (comboBox1.Text == "Only This Ledger")
                 {
                     qry = "select b.vno,b.vdt,b.TRANTYPE,b.InventoryVNo,a.AMT,a.AMTTYPE,a.SLID,a.GLID  from TblLEDGER a, TblVOUCHER b " +
-                        "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and a.glid = " + glid +
+                        "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and a.finyr=b.finyr and a.glid = " + glid +
                         " and vdt >='" + frmDt.Value.ToString("dd/MM/yyyy") + "' and vdt < '" +
                         toDt.Value.AddDays(1).ToString("dd/MM/yyyy") + "'";
                 }
                 else if (comboBox1.Text == "Total Voucher")
                 {
                     qry = "select b.vno,b.vdt,b.TRANTYPE,b.InventoryVNo,a.AMT,a.AMTTYPE,a.SLID,a.GLID  from TblLEDGER a, TblVOUCHER b " +
-                       "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and (CONVERT(varchar, b.vno)+b.TRANTYPE) in (" +
+                       "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and a.finyr=b.finyr and (CONVERT(varchar, b.vno)+b.TRANTYPE) in (" +
                        "select (CONVERT(varchar,vno)+TRANTYPE) from TblLEDGER where glid = " + glid + ")" +
                        " and vdt >='" + frmDt.Value.ToString("dd/MM/yyyy") + "' and vdt < '" +
                         toDt.Value.AddDays(1).ToString("dd/MM/yyyy") + "'";
@@ -120,7 +120,7 @@ namespace FINNSOFT
                 if (comboBox1.Text == "Only This Ledger")
                 {
                     qry = "select b.vno,b.vdt,b.TRANTYPE,b.InventoryVNo,a.AMT,a.AMTTYPE,a.SLID,a.GLID  from TblLEDGER a, TblVOUCHER b " +
-                        "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and a.glid = " + glid +
+                        "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and a.finyr=b.finyr and a.glid = " + glid +
                         " and a.slid = " + slid +
                         " and vdt >='" + frmDt.Value.ToString("dd/MM/yyyy") + "' and vdt < '" +
                         toDt.Value.AddDays(1).ToString("dd/MM/yyyy") + "'";
@@ -128,7 +128,7 @@ namespace FINNSOFT
                 else if (comboBox1.Text == "Total Voucher")
                 {
                     qry = "select b.vno,b.vdt,b.TRANTYPE,b.InventoryVNo,a.AMT,a.AMTTYPE,a.SLID,a.GLID  from TblLEDGER a, TblVOUCHER b " +
-                       "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and (CONVERT(varchar, b.vno)+b.TRANTYPE) in (" +
+                       "where a.BrCode = b.BrCode and a.VNO = b.VNO and a.TRANTYPE = b.TRANTYPE and a.finyr=b.finyr and (CONVERT(varchar, b.vno)+b.TRANTYPE) in (" +
                        "select (CONVERT(varchar,vno)+TRANTYPE) from TblLEDGER where glid = " + glid + " and slid = " + slid + ")" +
                        " and vdt >='" + frmDt.Value.ToString("dd/MM/yyyy") + "' and vdt < '" +
                         toDt.Value.AddDays(1).ToString("dd/MM/yyyy") + "'";

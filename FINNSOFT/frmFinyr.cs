@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace FINNSOFT
 {
-    public partial class frmFinyr : Form
+    public partial class frmFinyr : MetroFramework.Forms.MetroForm
     {
         public frmFinyr()
         {

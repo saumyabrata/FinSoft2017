@@ -10,10 +10,12 @@ using System.Data.SqlClient;
 using FINNSOFT.UI;
 using System.Security.Cryptography;
 using System.IO;
+using MetroFramework;
+using MetroFramework.Forms;
 
 namespace FINNSOFT.UI
 {
-    public partial class FrmLogin : Form
+    public partial class FrmLogin : MetroFramework.Forms.MetroForm
     {
         public FrmLogin()
         {
@@ -40,10 +42,10 @@ namespace FINNSOFT.UI
                 ds.Tables["Branch"].Clear();
             da.Fill(ds, "Branch");
 
-            comboBox1.DataSource = null;
-            comboBox1.DataSource = ds.Tables["Branch"];
-            comboBox1.DisplayMember = "BrName";
-            comboBox1.ValueMember = "BrCode";
+            cmbobranch.DataSource = null;
+            cmbobranch.DataSource = ds.Tables["Branch"];
+            cmbobranch.DisplayMember = "BrName";
+            cmbobranch.ValueMember = "BrCode";
             da.Dispose();
             ds.Dispose();
         }
@@ -97,15 +99,37 @@ namespace FINNSOFT.UI
             return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+       
+        private void cmbobranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Global.branch = comboBox1.SelectedValue.ToString();
+            Global.branch = cmbobranch.SelectedValue.ToString();
+            //SqlCommand cmd = new SqlCommand();
+            string qry = "select isnull(FinYr,'00') FinYr from TblControl where rtrim(BrCode)='" + Global.branch + "' order by Finyr DESC";
+            SqlDataAdapter da = new SqlDataAdapter(qry, clsConnection.Conn);
+            DataSet ds = new DataSet();
+            if (ds.Tables["FinYr"] != null)
+                ds.Tables["FinYr"].Clear();
+            da.Fill(ds, "FinYr");
+
+            cmbofinyr.DataSource = null;
+            cmbofinyr.DataSource = ds.Tables["FinYr"];
+            cmbofinyr.DisplayMember = "FinYr";
+            cmbofinyr.ValueMember = "FinYr";
+            da.Dispose();
+            ds.Dispose();
+            //cmd.Dispose();
+        }
+
+        private void bttnstart_Click(object sender, EventArgs e)
+        {
+            Global.branch = cmbobranch.SelectedValue.ToString();
             SqlDataReader rdr = null;
-            string qry = "select password,role from TblPassword where username = '" + textBox1.Text.ToString() + "' and rtrim(BrCode)='" + Global.branch + "'";
+            string qry = "select password,role from TblPassword where username = '" + txtlogin.Text.ToString() + "' and rtrim(BrCode)='" + Global.branch + "'";
             SqlCommand com = new SqlCommand(qry, clsConnection.Conn);
             try
             {
-                Global.username = textBox1.Text;
+                Global.username = txtlogin.Text;
                 rdr = com.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -118,21 +142,23 @@ namespace FINNSOFT.UI
                         string MtchPsswd = Decrypt(psswd);
 
                         //MessageBox.Show(MtchPsswd);
-                        if (textBox2.Text == MtchPsswd && userrole.Trim() == "Admin")
+                        if (txtpass.Text == MtchPsswd && userrole.Trim() == "Admin")
 
                         {
-                            Global.branch = comboBox1.SelectedValue.ToString();
-                            Global.finyr = comboBox2.SelectedValue.ToString();
-                            new DashBoardMenu().Show();
+                            Global.branch = cmbobranch.SelectedValue.ToString();
+                            Global.finyr = cmbofinyr.SelectedValue.ToString();
+                            //new MainMenu().Show();
+                            new StartMenu().Show();
                             this.Close();
                         }
 
-                        else if (textBox2.Text == MtchPsswd && userrole.Trim() == "User")
+                        else if (txtpass.Text == MtchPsswd && userrole.Trim() == "User")
 
                         {
-                            Global.branch = comboBox1.SelectedValue.ToString();
-                            Global.finyr = comboBox2.SelectedValue.ToString();
-                            new DashBoardMenu().Show();
+                            Global.branch = cmbobranch.SelectedValue.ToString();
+                            Global.finyr = cmbofinyr.SelectedValue.ToString();
+                            //new MainMenu().Show();
+                            new StartMenu().Show();
                             this.Close();
                         }
                         else
@@ -140,7 +166,7 @@ namespace FINNSOFT.UI
                             const string message = "Username/Password does not match,retry?";
                             const string caption = "Invalid Login";
                             var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            textBox1.Focus();
+                            txtlogin.Focus();
                         }
                     }
                 }
@@ -158,24 +184,12 @@ namespace FINNSOFT.UI
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            Global.branch = comboBox1.SelectedValue.ToString();
-            //SqlCommand cmd = new SqlCommand();
-            string qry = "select isnull(FinYr,'00') FinYr from TblControl where rtrim(BrCode)='" + Global.branch + "'";
-            SqlDataAdapter da = new SqlDataAdapter(qry, clsConnection.Conn);
-            DataSet ds = new DataSet();
-            if (ds.Tables["FinYr"] != null)
-                ds.Tables["FinYr"].Clear();
-            da.Fill(ds, "FinYr");
-
-            comboBox2.DataSource = null;
-            comboBox2.DataSource = ds.Tables["FinYr"];
-            comboBox2.DisplayMember = "FinYr";
-            comboBox2.ValueMember = "FinYr";
-            da.Dispose();
-            ds.Dispose();
-            //cmd.Dispose();
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
  }

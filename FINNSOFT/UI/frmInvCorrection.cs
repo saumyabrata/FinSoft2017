@@ -13,7 +13,7 @@ using FINNSOFT.UI;
 
 namespace FINNSOFT.UI
 {
-    public partial class frmInvCorrection : Form
+    public partial class frmInvCorrection : MetroFramework.Forms.MetroForm
     {
         public frmInvCorrection()
         {

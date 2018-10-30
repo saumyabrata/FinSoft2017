@@ -43,7 +43,7 @@ namespace FINNSOFT.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 29);
+            this.label1.Location = new System.Drawing.Point(32, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace FINNSOFT.UI
             "Receipt",
             "Payment",
             "Contra"});
-            this.comboBox1.Location = new System.Drawing.Point(129, 26);
+            this.comboBox1.Location = new System.Drawing.Point(118, 70);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(155, 21);
             this.comboBox1.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace FINNSOFT.UI
             // 
             // MskFrom
             // 
-            this.MskFrom.Location = new System.Drawing.Point(36, 150);
+            this.MskFrom.Location = new System.Drawing.Point(23, 209);
             this.MskFrom.Mask = "##/##/####";
             this.MskFrom.Name = "MskFrom";
             this.MskFrom.Size = new System.Drawing.Size(100, 20);
@@ -74,7 +74,7 @@ namespace FINNSOFT.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 81);
+            this.label2.Location = new System.Drawing.Point(152, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace FINNSOFT.UI
             // 
             // mskTo
             // 
-            this.mskTo.Location = new System.Drawing.Point(188, 150);
+            this.mskTo.Location = new System.Drawing.Point(177, 209);
             this.mskTo.Mask = "##/##/####";
             this.mskTo.Name = "mskTo";
             this.mskTo.Size = new System.Drawing.Size(96, 20);
@@ -91,7 +91,7 @@ namespace FINNSOFT.UI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(110, 111);
+            this.button1.Location = new System.Drawing.Point(99, 155);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 24);
             this.button1.TabIndex = 5;
@@ -103,7 +103,7 @@ namespace FINNSOFT.UI
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(47, 74);
+            this.dateTimePicker1.Location = new System.Drawing.Point(36, 118);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -113,7 +113,7 @@ namespace FINNSOFT.UI
             // 
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(194, 74);
+            this.dateTimePicker2.Location = new System.Drawing.Point(183, 118);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(90, 20);
             this.dateTimePicker2.TabIndex = 7;
@@ -123,7 +123,7 @@ namespace FINNSOFT.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 148);
+            this.ClientSize = new System.Drawing.Size(318, 207);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button1);
@@ -134,8 +134,8 @@ namespace FINNSOFT.UI
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "FrmVoucherPrint";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmVoucherPrint";
+            this.Load += new System.EventHandler(this.FrmVoucherPrint_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

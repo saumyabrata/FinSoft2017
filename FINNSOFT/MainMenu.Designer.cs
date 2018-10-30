@@ -55,6 +55,11 @@
             this.currentBalanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dayBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ledgerDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importBankStatementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listOfChequeIssuedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listOfChequeClearedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankReconciliationStatementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.FrmPL = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -78,6 +83,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.altToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -134,7 +140,7 @@
             this.costCenterToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.costCenterToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.UtilisateurSZ;
             this.costCenterToolStripMenuItem.Name = "costCenterToolStripMenuItem";
-            this.costCenterToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
+            this.costCenterToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.costCenterToolStripMenuItem.Text = "Cost Center";
             this.costCenterToolStripMenuItem.Click += new System.EventHandler(this.costCenterToolStripMenuItem_Click);
             // 
@@ -142,7 +148,7 @@
             // 
             this.dataExportImportToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.entry;
             this.dataExportImportToolStripMenuItem.Name = "dataExportImportToolStripMenuItem";
-            this.dataExportImportToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
+            this.dataExportImportToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.dataExportImportToolStripMenuItem.Text = "Data Export/Import";
             this.dataExportImportToolStripMenuItem.Click += new System.EventHandler(this.dataExportImportToolStripMenuItem_Click);
             // 
@@ -166,7 +172,7 @@
             // 
             this.reindexingToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.WindowsMPSZ;
             this.reindexingToolStripMenuItem.Name = "reindexingToolStripMenuItem";
-            this.reindexingToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
+            this.reindexingToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.reindexingToolStripMenuItem.Text = "Reindexing";
             this.reindexingToolStripMenuItem.Click += new System.EventHandler(this.reindexingToolStripMenuItem_Click);
             // 
@@ -190,7 +196,7 @@
             // 
             this.narrationResourceToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.BitdefenderSZ;
             this.narrationResourceToolStripMenuItem.Name = "narrationResourceToolStripMenuItem";
-            this.narrationResourceToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
+            this.narrationResourceToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.narrationResourceToolStripMenuItem.Text = "Narration Resource";
             this.narrationResourceToolStripMenuItem.Click += new System.EventHandler(this.narrationResourceToolStripMenuItem_Click);
             // 
@@ -198,7 +204,7 @@
             // 
             this.budgetoryControlToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.ExcelSZ;
             this.budgetoryControlToolStripMenuItem.Name = "budgetoryControlToolStripMenuItem";
-            this.budgetoryControlToolStripMenuItem.Size = new System.Drawing.Size(331, 56);
+            this.budgetoryControlToolStripMenuItem.Size = new System.Drawing.Size(301, 28);
             this.budgetoryControlToolStripMenuItem.Text = "Budgetory Control";
             this.budgetoryControlToolStripMenuItem.Click += new System.EventHandler(this.budgetoryControlToolStripMenuItem_Click);
             // 
@@ -240,7 +246,8 @@
             this.FrmVoucher.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.FrmVoucher.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.voucherPrintToolStripMenuItem,
-            this.voucherPrintToolStripMenuItem1});
+            this.voucherPrintToolStripMenuItem1,
+            this.altToolStripMenuItem});
             this.FrmVoucher.Image = global::FINNSOFT.Properties.Resources.Chart;
             this.FrmVoucher.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FrmVoucher.Name = "FrmVoucher";
@@ -254,7 +261,7 @@
             this.voucherPrintToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.voucherPrintToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources._7039;
             this.voucherPrintToolStripMenuItem.Name = "voucherPrintToolStripMenuItem";
-            this.voucherPrintToolStripMenuItem.Size = new System.Drawing.Size(193, 28);
+            this.voucherPrintToolStripMenuItem.Size = new System.Drawing.Size(223, 56);
             this.voucherPrintToolStripMenuItem.Text = "Voucher Entry";
             this.voucherPrintToolStripMenuItem.Click += new System.EventHandler(this.voucherPrintToolStripMenuItem_Click);
             // 
@@ -264,7 +271,7 @@
             this.voucherPrintToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.voucherPrintToolStripMenuItem1.Image = global::FINNSOFT.Properties.Resources.imprimantcleanSZe;
             this.voucherPrintToolStripMenuItem1.Name = "voucherPrintToolStripMenuItem1";
-            this.voucherPrintToolStripMenuItem1.Size = new System.Drawing.Size(193, 28);
+            this.voucherPrintToolStripMenuItem1.Size = new System.Drawing.Size(223, 56);
             this.voucherPrintToolStripMenuItem1.Text = "Voucher Print";
             this.voucherPrintToolStripMenuItem1.Click += new System.EventHandler(this.voucherPrintToolStripMenuItem1_Click);
             // 
@@ -282,7 +289,8 @@
             this.trialBalanceToolStripMenuItem,
             this.currentBalanceToolStripMenuItem,
             this.dayBookToolStripMenuItem,
-            this.ledgerDetailsToolStripMenuItem});
+            this.ledgerDetailsToolStripMenuItem,
+            this.bankToolStripMenuItem});
             this.booksmenuButton.Image = global::FINNSOFT.Properties.Resources.File;
             this.booksmenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.booksmenuButton.Name = "booksmenuButton";
@@ -295,7 +303,7 @@
             this.cashBankBookToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.cashBankBookToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.MyDocumentFolder;
             this.cashBankBookToolStripMenuItem.Name = "cashBankBookToolStripMenuItem";
-            this.cashBankBookToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
+            this.cashBankBookToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
             this.cashBankBookToolStripMenuItem.Text = "Cash/Bank Book";
             this.cashBankBookToolStripMenuItem.Click += new System.EventHandler(this.cashBankBookToolStripMenuItem_Click);
             // 
@@ -305,7 +313,7 @@
             this.booksOfAccountToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.booksOfAccountToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.ProgrammesSZ;
             this.booksOfAccountToolStripMenuItem.Name = "booksOfAccountToolStripMenuItem";
-            this.booksOfAccountToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
+            this.booksOfAccountToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
             this.booksOfAccountToolStripMenuItem.Text = "Books of Account";
             this.booksOfAccountToolStripMenuItem.Click += new System.EventHandler(this.booksOfAccountToolStripMenuItem_Click);
             // 
@@ -315,7 +323,7 @@
             this.trialBalanceToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.trialBalanceToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.rich_text_format;
             this.trialBalanceToolStripMenuItem.Name = "trialBalanceToolStripMenuItem";
-            this.trialBalanceToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
+            this.trialBalanceToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
             this.trialBalanceToolStripMenuItem.Text = "Trial Balance";
             this.trialBalanceToolStripMenuItem.Click += new System.EventHandler(this.trialBalanceToolStripMenuItem_Click);
             // 
@@ -325,7 +333,7 @@
             this.currentBalanceToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.currentBalanceToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.MyDocumentFolder;
             this.currentBalanceToolStripMenuItem.Name = "currentBalanceToolStripMenuItem";
-            this.currentBalanceToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
+            this.currentBalanceToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
             this.currentBalanceToolStripMenuItem.Text = "Current Balance";
             this.currentBalanceToolStripMenuItem.Click += new System.EventHandler(this.currentBalanceToolStripMenuItem_Click);
             // 
@@ -335,7 +343,7 @@
             this.dayBookToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.dayBookToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.Bloc_Notes_SZ;
             this.dayBookToolStripMenuItem.Name = "dayBookToolStripMenuItem";
-            this.dayBookToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
+            this.dayBookToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
             this.dayBookToolStripMenuItem.Text = "Day Book";
             this.dayBookToolStripMenuItem.Click += new System.EventHandler(this.dayBookToolStripMenuItem_Click);
             // 
@@ -345,9 +353,49 @@
             this.ledgerDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.ledgerDetailsToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.entry;
             this.ledgerDetailsToolStripMenuItem.Name = "ledgerDetailsToolStripMenuItem";
-            this.ledgerDetailsToolStripMenuItem.Size = new System.Drawing.Size(246, 56);
+            this.ledgerDetailsToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
             this.ledgerDetailsToolStripMenuItem.Text = "Ledger Details";
             this.ledgerDetailsToolStripMenuItem.Click += new System.EventHandler(this.ledgerDetailsToolStripMenuItem_Click);
+            // 
+            // bankToolStripMenuItem
+            // 
+            this.bankToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importBankStatementToolStripMenuItem,
+            this.listOfChequeIssuedToolStripMenuItem,
+            this.listOfChequeClearedToolStripMenuItem,
+            this.bankReconciliationStatementToolStripMenuItem});
+            this.bankToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bankToolStripMenuItem.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.bankToolStripMenuItem.Image = global::FINNSOFT.Properties.Resources.Bloc_Notes_SZ;
+            this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
+            this.bankToolStripMenuItem.Size = new System.Drawing.Size(268, 56);
+            this.bankToolStripMenuItem.Text = "Bank Reconciliation";
+            // 
+            // importBankStatementToolStripMenuItem
+            // 
+            this.importBankStatementToolStripMenuItem.Name = "importBankStatementToolStripMenuItem";
+            this.importBankStatementToolStripMenuItem.Size = new System.Drawing.Size(324, 28);
+            this.importBankStatementToolStripMenuItem.Text = "Import Bank Statement";
+            this.importBankStatementToolStripMenuItem.Click += new System.EventHandler(this.importBankStatementToolStripMenuItem_Click);
+            // 
+            // listOfChequeIssuedToolStripMenuItem
+            // 
+            this.listOfChequeIssuedToolStripMenuItem.Name = "listOfChequeIssuedToolStripMenuItem";
+            this.listOfChequeIssuedToolStripMenuItem.Size = new System.Drawing.Size(324, 28);
+            this.listOfChequeIssuedToolStripMenuItem.Text = "List of Outstanding Cheque";
+            this.listOfChequeIssuedToolStripMenuItem.Click += new System.EventHandler(this.listOfChequeIssuedToolStripMenuItem_Click);
+            // 
+            // listOfChequeClearedToolStripMenuItem
+            // 
+            this.listOfChequeClearedToolStripMenuItem.Name = "listOfChequeClearedToolStripMenuItem";
+            this.listOfChequeClearedToolStripMenuItem.Size = new System.Drawing.Size(324, 28);
+            this.listOfChequeClearedToolStripMenuItem.Text = "Reconcilliate";
+            // 
+            // bankReconciliationStatementToolStripMenuItem
+            // 
+            this.bankReconciliationStatementToolStripMenuItem.Name = "bankReconciliationStatementToolStripMenuItem";
+            this.bankReconciliationStatementToolStripMenuItem.Size = new System.Drawing.Size(324, 28);
+            this.bankReconciliationStatementToolStripMenuItem.Text = "Bank Reconciliation Statement";
             // 
             // toolStripSeparator2
             // 
@@ -597,6 +645,13 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "User Name -";
             // 
+            // altToolStripMenuItem
+            // 
+            this.altToolStripMenuItem.Name = "altToolStripMenuItem";
+            this.altToolStripMenuItem.Size = new System.Drawing.Size(223, 56);
+            this.altToolStripMenuItem.Text = "Alt";
+            this.altToolStripMenuItem.Click += new System.EventHandler(this.altToolStripMenuItem_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -680,5 +735,11 @@
         private System.Windows.Forms.ToolStripMenuItem dayBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ledgerDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importBankStatementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listOfChequeIssuedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listOfChequeClearedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bankReconciliationStatementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altToolStripMenuItem;
     }
 }

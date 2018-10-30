@@ -251,7 +251,7 @@ namespace FINNSOFT
         {
             Global.branch = comboBox1.SelectedValue.ToString();
             //SqlCommand cmd = new SqlCommand();
-            string qry = "select isnull(FinYr,'00') FinYr from TblControl where rtrim(BrCode)='" + Global.branch + "'";
+            string qry = "select isnull(FinYr,'00') FinYr from TblControl where rtrim(BrCode)='" + Global.branch + "' order by Finyr DESC";
             SqlDataAdapter da = new SqlDataAdapter(qry, clsConnection.Conn);
             DataSet ds = new DataSet();
             if (ds.Tables["FinYr"] != null)
@@ -436,6 +436,23 @@ namespace FINNSOFT
         private void budgetoryControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listOfChequeIssuedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importBankStatementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmStmntImport stmnt = new FrmStmntImport();
+            stmnt.Show();
+        }
+
+        private void altToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVoucherAlt vch2 = new FrmVoucherAlt();
+            vch2.Show();
         }
     }
 }

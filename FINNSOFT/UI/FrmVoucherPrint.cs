@@ -6,7 +6,7 @@ using CrystalDecisions.CrystalReports.Engine;
 
 namespace FINNSOFT.UI
 {
-    public partial class FrmVoucherPrint : Form
+    public partial class FrmVoucherPrint : MetroFramework.Forms.MetroForm
     {
         public FrmVoucherPrint()
         {
@@ -42,7 +42,7 @@ namespace FINNSOFT.UI
             com = new SqlCommand(qry, clsConnection.Conn);
             com.ExecuteNonQuery();
 
-            qry = "insert into tblprintvoucher (finyr,BrCode,GLID,SLID,GL_L_Name,SL_L_NAME,VNO,TRANTYPE,AMTTYPE,AMT,InventoryVNo,VDT,ANYSL,BrName) select finyr,BrCode,GLID,SLID,GL_L_Name,SL_L_NAME,VNO,TRANTYPE,AMTTYPE,AMT,NAR,VDT,ANYSL,BrName from viewvoucher where brcode='" + Global.branch + "' and trantype='" + vtype + "' and (VDT >=  '" + dateTimePicker1.Value + "' and VDT < '" + addt + "') order by vdt,vno,amttype desc";
+            qry = "insert into tblprintvoucher (finyr,BrCode,GLID,SLID,GL_L_Name,SL_L_NAME,VNO,TRANTYPE,AMTTYPE,AMT,InventoryVNo,VDT,ANYSL,BrName) select finyr,BrCode,GLID,SLID,GL_L_Name,SL_L_NAME,VNO,TRANTYPE,AMTTYPE,AMT,NAR,VDT,ANYSL,BrName from viewvoucher where finyr='"+ Global.finyr +"' and brcode='" + Global.branch + "' and trantype='" + vtype + "' and (VDT >=  '" + dateTimePicker1.Value + "' and VDT < '" + addt + "') order by vdt,vno,amttype desc";
 
             com = new SqlCommand(qry, clsConnection.Conn);
             com.ExecuteNonQuery();
@@ -74,6 +74,11 @@ namespace FINNSOFT.UI
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
-        }   
+        }
+
+        private void FrmVoucherPrint_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

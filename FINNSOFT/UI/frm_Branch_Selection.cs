@@ -10,16 +10,16 @@ using System.Data.SqlClient;
 
 namespace FINNSOFT
 {
-    public partial class frm_Branch_Selection : Form
+    public partial class frm_Branch_Selection : MetroFramework.Forms.MetroForm
     {
         public frm_Branch_Selection()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         
@@ -48,10 +48,32 @@ namespace FINNSOFT
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader Sread;
+            string qry = "select isnull(FinYr,'00') FinYr from TblControl where BrCode='" + Global.branch + "'";
+            SqlDataAdapter da = new SqlDataAdapter(qry, clsConnection.Conn);
+            DataSet ds = new DataSet();
+            if (ds.Tables["FinYr"] != null)
+                ds.Tables["FinYr"].Clear();
+            da.Fill(ds, "FinYr");
+
+            comboBox2.DataSource = null;
+            comboBox2.DataSource = ds.Tables["FinYr"];
+            comboBox2.DisplayMember = "FinYr";
+            comboBox2.ValueMember = "FinYr";
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
             Global.branch = comboBox1.SelectedValue.ToString();
             Global.finyr = comboBox2.SelectedValue.ToString();
-           // StatusStrip usrname = MainMenu();
-           // usrname.Text = "Branch: "+Global.branch;
+            // StatusStrip usrname = MainMenu();
+            // usrname.Text = "Branch: "+Global.branch;
             this.Close();
             //frmMain frm = new frmMain();
             //frm.Show();
@@ -76,21 +98,9 @@ namespace FINNSOFT
             cmd.Dispose();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void bttnExit_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader Sread;
-            string qry = "select isnull(FinYr,'00') FinYr from TblControl where BrCode='" + Global.branch + "'";
-            SqlDataAdapter da = new SqlDataAdapter(qry, clsConnection.Conn);
-            DataSet ds = new DataSet();
-            if (ds.Tables["FinYr"] != null)
-                ds.Tables["FinYr"].Clear();
-            da.Fill(ds, "FinYr");
-
-            comboBox2.DataSource = null;
-            comboBox2.DataSource = ds.Tables["FinYr"];
-            comboBox2.DisplayMember = "FinYr";
-            comboBox2.ValueMember = "FinYr";
+            this.Close();
         }
     }
 }

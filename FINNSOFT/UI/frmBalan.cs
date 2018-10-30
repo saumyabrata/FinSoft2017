@@ -13,7 +13,7 @@ using CrystalDecisions.Shared;
 
 namespace FINNSOFT
 {
-    public partial class frmBalan : Form
+    public partial class frmBalan : MetroFramework.Forms.MetroForm
     {
         public frmBalan()
         {
@@ -115,7 +115,7 @@ namespace FINNSOFT
             //Update Periodical Balance into TblRptLEDGER table from TblLEDGER table
             qry = "SELECT TblLEDGER.GLID, TblLEDGER.SLID, Sum(TblLEDGER.AMT) AS SumAMT, TblLEDGER.AMTTYPE";
             qry = qry + " FROM TblGLmast INNER JOIN (TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.VNO = TblLEDGER.VNO) AND ";
-            qry = qry + " (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) AND  (TblVOUCHER.brcode = TblLEDGER.BrCode)) ON TblGLmast.GLID = TblLEDGER.GLID";
+            qry = qry + " (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) AND  (TblVOUCHER.brcode = TblLEDGER.BrCode) AND (TblVOUCHER.finyr = TblLEDGER.finyr)) ON TblGLmast.GLID = TblLEDGER.GLID";
             qry = qry + " Where (TblVOUCHER.vdt >='" + mskFrom.Text + "' and TblVOUCHER.vdt < '" + addt + "') ";
             qry = qry + " And (TblGLmast.PL_BS_ID = 1 Or TblGLmast.PL_BS_ID = 2) and tblledger.BrCode = TblGLmast.brcode and TbllEDGER.BrCode='" + Global.branch + "' and TblGLmast.finyr='" + Global.finyr + "' ";
             qry = qry + " GROUP BY TblLEDGER.GLID, TblLEDGER.SLID, TblLEDGER.AMTTYPE ";
@@ -218,7 +218,7 @@ namespace FINNSOFT
 
             qry = "SELECT TblLEDGER.AMTTYPE , Sum(TblLEDGER.AMT) AS ledbal";
             qry = qry + " FROM TblGLmast INNER JOIN (TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.VNO = TblLEDGER.VNO) AND ";
-            qry = qry + " (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) and TblVOUCHER.brcode = TblLEDGER.brcode) ON TblGLmast.GLID = TblLEDGER.GLID";
+            qry = qry + " (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) and TblVOUCHER.brcode = TblLEDGER.brcode AND (TblVOUCHER.finyr = TblLEDGER.finyr) ON TblGLmast.GLID = TblLEDGER.GLID";
             qry = qry + " Where (TblVOUCHER.vdt >='" + mskFrom.Text + "' and TblVOUCHER.vdt < '" + addt + "') ";
             qry = qry + " And (TblGLmast.PL_BS_ID = 3 Or TblGLmast.PL_BS_ID = 4) and tblledger.BrCode = TblGLmast.brcode and TblLedger.BrCode='" + Global.branch + "' and TblGLmast.finyr='" + Global.finyr + "' ";
             qry = qry + " GROUP BY TblLEDGER.AMTTYPE ";

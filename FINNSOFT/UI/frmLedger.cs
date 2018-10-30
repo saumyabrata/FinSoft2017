@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Windows.Forms.DataVisualization.Charting;
+//using System.Windows.Forms.DataVisualization.Charting;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions;
 using CrystalDecisions.Shared;
@@ -16,7 +16,7 @@ using CrystalDecisions.Shared;
 
 namespace FINNSOFT
 {
-    public partial class frmLedger : Form
+    public partial class frmLedger : MetroFramework.Forms.MetroForm
     {
         public static string mSlid = "";
         public static string mGlid = "00001";
@@ -35,65 +35,65 @@ namespace FINNSOFT
         }
 
 
-        private void setchart()
-        {
-            mscDailySales.DataSource = dtchart;
-            mscDailySales.Series[0].XValueMember = "mon";
-            mscDailySales.Series[0].YValueMembers = "value";
+        //private void setchart()
+        //{
+        //    mscDailySales.DataSource = dtchart;
+        //    mscDailySales.Series[0].XValueMember = "mon";
+        //    mscDailySales.Series[0].YValueMembers = "value";
 
-            mscDailySales.Series[1].XValueMember = "mon";
-            mscDailySales.Series[1].YValueMembers = "value";
+        //    mscDailySales.Series[1].XValueMember = "mon";
+        //    mscDailySales.Series[1].YValueMembers = "value";
 
-            mscDailySales.DataBind();
-            double dblMean = 0.0;
-            try
-            {
-                dblMean = mscDailySales.DataManipulator.Statistics.Mean("Series1");
-            }
-            catch (Exception)
-            {
-                dblMean = 1;
-            }
-            dates.Clear();
-            val.Clear();
+        //    mscDailySales.DataBind();
+        //    double dblMean = 0.0;
+        //    try
+        //    {
+        //        dblMean = mscDailySales.DataManipulator.Statistics.Mean("Series1");
+        //    }
+        //    catch (Exception)
+        //    {
+        //        dblMean = 1;
+        //    }
+        //    dates.Clear();
+        //    val.Clear();
 
-            for (int i = 0; i < dtchart.Rows.Count; i++)
-            {
-                dates.Add(dtchart.Rows[i][0].ToString());
-                try
-                {
-                    val.Add(Convert.ToDouble(dtchart.Rows[i][1]));
-                }
-                catch (Exception)
-                {
-                    val.Add(0);
-                }
-            }
-
-
-            mscDailySales.Series[0].Points.DataBindXY(dates.ToArray(), val.ToArray());
-
-            dates.Clear();
-            val.Clear();
-
-            for (int i = 0; i < dtchart1.Rows.Count; i++)
-            {
-                dates.Add(dtchart1.Rows[i][0].ToString());
-                try
-                {
-                    val.Add(Convert.ToDouble(dtchart1.Rows[i][1]));
-                }
-                catch (Exception)
-                {
-                    val.Add(0);
-                }
-            }
+        //    for (int i = 0; i < dtchart.Rows.Count; i++)
+        //    {
+        //        dates.Add(dtchart.Rows[i][0].ToString());
+        //        try
+        //        {
+        //            val.Add(Convert.ToDouble(dtchart.Rows[i][1]));
+        //        }
+        //        catch (Exception)
+        //        {
+        //            val.Add(0);
+        //        }
+        //    }
 
 
-            mscDailySales.Series[1].Points.DataBindXY(dates.ToArray(), val.ToArray());
+        //    mscDailySales.Series[0].Points.DataBindXY(dates.ToArray(), val.ToArray());
+
+        //    dates.Clear();
+        //    val.Clear();
+
+        //    for (int i = 0; i < dtchart1.Rows.Count; i++)
+        //    {
+        //        dates.Add(dtchart1.Rows[i][0].ToString());
+        //        try
+        //        {
+        //            val.Add(Convert.ToDouble(dtchart1.Rows[i][1]));
+        //        }
+        //        catch (Exception)
+        //        {
+        //            val.Add(0);
+        //        }
+        //    }
 
 
-        }
+        //    mscDailySales.Series[1].Points.DataBindXY(dates.ToArray(), val.ToArray());
+
+
+        //}
 
         private void frmLedger_Load(object sender, EventArgs e)
         {
@@ -108,13 +108,13 @@ namespace FINNSOFT
                 
                 FILL_GRID_HEAD();
                 fill_grid_detail();
-                setchart();
+                //setchart();
             }
             else
             {
                 fill_grid_head_daily();
                 fill_grid_detail();
-                setchart();
+                //setchart();
             }
         }
 
@@ -147,8 +147,6 @@ namespace FINNSOFT
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add();
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["Month"].Value = "Opening Balance";
-            dataGridView1.Columns["Debit"].DefaultCellStyle.Format = "0.00##";
-            dataGridView1.Columns["Credit"].DefaultCellStyle.Format = "0.00##";
             dataGridView1.Rows.Add();
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["Month"].Value = "April";
             dataGridView1.Rows.Add();
@@ -173,11 +171,7 @@ namespace FINNSOFT
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["Month"].Value = "February";
             dataGridView1.Rows.Add();
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["Month"].Value = "March";
-            //dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
+            
             //Add list dates
 
             dates.Clear();
@@ -212,7 +206,7 @@ namespace FINNSOFT
                 {
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, Month([VDT]) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "')  and tblvoucher.vdt<'" + Global.gFromDt.ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, Month(TblVOUCHER.VDT) ";
                     QRY = QRY + "ORDER BY Month(TblVOUCHER.VDT)";
@@ -230,7 +224,7 @@ namespace FINNSOFT
 
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, CONVERT(varchar,TblVOUCHER.VDT,103) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "')  and tblvoucher.vdt<'" + stdt1.ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, CONVERT(varchar,TblVOUCHER.VDT,103) ";
                     QRY = QRY + "ORDER BY CONVERT(varchar,TblVOUCHER.VDT,103)";
@@ -260,7 +254,7 @@ namespace FINNSOFT
                 {
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, Month([VDT]) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "')  and tblvoucher.vdt>='" + Global.gFromDt.ToString("dd/MM/yyyy") + "' and tblvoucher.vdt<'" + Global.gToDt.AddDays(1).ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, Month(TblVOUCHER.VDT) ";
                     QRY = QRY + "ORDER BY Month(TblVOUCHER.VDT)";
@@ -278,7 +272,7 @@ namespace FINNSOFT
 
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, CONVERT(varchar,TblVOUCHER.VDT,103) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.glid = '" + mGlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "')  and tblvoucher.vdt>='" + stdt1.ToString("dd/MM/yyyy") + "' and tblvoucher.vdt<'" + enddt1.AddDays(1).ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, CONVERT(varchar,TblVOUCHER.VDT,103) ";
                     QRY = QRY + "ORDER BY CONVERT(varchar,TblVOUCHER.VDT,103)";
@@ -324,7 +318,7 @@ namespace FINNSOFT
                 {
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, Month([VDT]) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "') and tblvoucher.vdt<'" + Global.gFromDt.ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, Month(TblVOUCHER.VDT) ";
                     QRY = QRY + "ORDER BY Month(TblVOUCHER.VDT)";
@@ -342,7 +336,7 @@ namespace FINNSOFT
 
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, CONVERT(varchar,TblVOUCHER.VDT,103) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "') and tblvoucher.vdt<'" + stdt1.ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, CONVERT(varchar,TblVOUCHER.VDT,103) ";
                     QRY = QRY + "ORDER BY CONVERT(varchar,TblVOUCHER.VDT,103)";
@@ -372,7 +366,7 @@ namespace FINNSOFT
                 {
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, Month([VDT]) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "') and tblvoucher.vdt>='" + Global.gFromDt.ToString("dd/MM/yyyy") + "'  and tblvoucher.vdt<'" + Global.gToDt.AddDays(1).ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, Month(TblVOUCHER.VDT) ";
                     QRY = QRY + "ORDER BY Month(TblVOUCHER.VDT)";
@@ -391,7 +385,7 @@ namespace FINNSOFT
 
                     QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, CONVERT(varchar,TblVOUCHER.VDT,103) AS mon ";
                     QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
+                    QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.Finyr = TblLEDGER.Finyr) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.Slid = '" + mSlid + "') ";
                     QRY = QRY + "AND (TblVOUCHER.BrCode = '" + Global.branch + "') and tblvoucher.vdt>='" + stdt1.ToString("dd/MM/yyyy") + "'  and tblvoucher.vdt<='" + enddt1.AddDays(1).ToString("dd/MM/yyyy") + "' ";
                     QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, CONVERT(varchar,TblVOUCHER.VDT,103) ";
                     QRY = QRY + "ORDER BY CONVERT(varchar,TblVOUCHER.VDT,103)";
@@ -409,17 +403,17 @@ namespace FINNSOFT
                 DataTable dt2 = ds2.Tables["Opening"];
                 foreach (DataRow row2 in dt2.Rows)
                 {
-                    OpBal = Convert.ToDouble(row2["op_bal"]);
+                    OpBal = OpBal - Convert.ToDouble(row2["op_bal"]);
 
                 }
                 if (OpBal > 0)
                 {
-                    dataGridView1.Rows[0].Cells["Debit"].Value = Math.Round(Math.Abs(OpBal), 2);
+                    dataGridView1.Rows[1].Cells["Debit"].Value = Math.Round(OpBal, 2);
                     //val.Add(Math.Round(OpBal, 2));
                 }
                 else if (OpBal < 0)
                 {
-                    dataGridView1.Rows[0].Cells["Credit"].Value = Math.Round(Math.Abs(OpBal), 2);
+                    dataGridView1.Rows[1].Cells["Credit"].Value = Math.Round(Math.Abs(OpBal), 2);
                     //val.Add(Math.Round(Math.Abs(OpBal), 2));
                 }
                 else
@@ -976,7 +970,7 @@ namespace FINNSOFT
         {
             this.Cursor = Cursors.WaitCursor;
 
-            if (e.RowIndex != 0 && e.RowIndex != dataGridView1.Rows.Count - 1 )
+            if (e.RowIndex != 0 || e.RowIndex != dataGridView1.Rows.Count - 1)
             {
                 string date = dataGridView1.Rows[e.RowIndex].Cells["Month"].Value.ToString();
                 DateTime dt = DateTime.Today;

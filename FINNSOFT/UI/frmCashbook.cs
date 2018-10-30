@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace FINNSOFT
 {
-    public partial class frmCashbook : Form
+    public partial class frmCashbook : MetroFramework.Forms.MetroForm
     {
         public frmCashbook()
         {
@@ -20,7 +20,6 @@ namespace FINNSOFT
         private void frmCashbook_Load(object sender, EventArgs e)
         {
             fillGrid();
-            filltotal();
         }
 
         public void fillGrid()
@@ -66,7 +65,7 @@ namespace FINNSOFT
             {
                 QRY = "SELECT TblLEDGER.AMTTYPE, Sum(TblLEDGER.AMT) AS SumAMT, Month([VDT]) AS mon ";
                 QRY = QRY + "FROM TblVOUCHER INNER JOIN TblLEDGER ON (TblVOUCHER.TRANTYPE = TblLEDGER.TRANTYPE) ";
-                QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) Where (TblLEDGER.slid = '" + Convert.ToString(dataGridView1.Rows[mRow].Cells["SLID"].Value) + "') ";
+                QRY = QRY + "AND (TblVOUCHER.VNO = TblLEDGER.VNO) AND (TblVOUCHER.BrCode = TblLEDGER.BrCode) AND (TblVOUCHER.finyr = TblLEDGER.finyr) Where (TblLEDGER.slid = '" + Convert.ToString(dataGridView1.Rows[mRow].Cells["SLID"].Value) + "') ";
                 QRY = QRY + "AND (TblLEDGER.BrCode = '" + Global.branch + "') AND (TblLEDGER.finyr = '" + Global.finyr + "')  AND (TblVOUCHER.vdt >='" + Global.gFromDt.ToString("dd/MM/yyyy") + "' and TblVOUCHER.vdt <= '" + Global.gToDt.ToString("dd/MM/yyyy") + "') ";//<='" + System.DateTime.Today.ToString("dd/MM/yyyy") + "' ";
                 QRY = QRY + "GROUP BY TblLEDGER.AMTTYPE, Month(TblVOUCHER.VDT) ";
                 QRY = QRY + "ORDER BY Month(TblVOUCHER.VDT)";
@@ -101,34 +100,18 @@ namespace FINNSOFT
             }
             if (OpBal > 0)
             {
-                dataGridView1.Rows[mRow].Cells["Debit"].Value = Math.Round(OpBal,2);
+                dataGridView1.Rows[mRow].Cells["Debit"].Value = OpBal;
             }
             else if (OpBal < 0)
             {
-                dataGridView1.Rows[mRow].Cells["Credit"].Value = Math.Round(OpBal, 2)*-1;
+                dataGridView1.Rows[mRow].Cells["Credit"].Value = Math.Abs(OpBal);
             }
             else
             {
                 //dataGridView1.Rows[mRow].Cells["Debit"].Value = OpBal;
             }
         }
-        private void filltotal()
-        {
-            double totdebit=0;
-            double totcredit=0;
-            Int32 rowcnt = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (Convert.ToString(row.Cells["Particular"].Value) != "")
-                {
-                    totdebit = totdebit + Convert.ToDouble(dataGridView1.Rows[rowcnt].Cells["Debit"].Value);
-                    totcredit = totcredit + Convert.ToDouble(dataGridView1.Rows[rowcnt].Cells["Credit"].Value);
-                }
-                rowcnt = rowcnt + 1;
-            }
-            label2.Text = totdebit.ToString();
-            label6.Text = totcredit.ToString();
-        }
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Global.ledgyear = 0;
@@ -149,24 +132,9 @@ namespace FINNSOFT
             F.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            Global.ledgyear = 0;
-            Global.ledgmon = 0;
 
-            frmLedger.mSlid = dataGridView1.Rows[e.RowIndex].Cells["SLID"].Value.ToString();
-
-            try
-            {
-                frmLedger.mSlid = dataGridView1.Rows[e.RowIndex].Cells["SLID"].Value.ToString();
-            }
-            catch (Exception)
-            {
-                frmLedger.mSlid = "";
-            }
-            frmLedger.mLedger = dataGridView1.Rows[e.RowIndex].Cells["Particular"].Value.ToString();
-            frmLedger F = new frmLedger();
-            F.ShowDialog();
         }
     }
 }

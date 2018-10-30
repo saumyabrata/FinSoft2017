@@ -13,7 +13,7 @@ using System.IO;
 
 namespace FINNSOFT
 {
-    public partial class DashBoardMenu : Form
+    public partial class DashBoardMenu : MetroFramework.Forms.MetroForm
     {
         public DashBoardMenu()
         {
@@ -83,8 +83,12 @@ namespace FINNSOFT
 
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVoucher vch = new frmVoucher();
-            vch.Show();
+            FrmVoucherAlt FrmVoucherAltMDIChild = new FrmVoucherAlt();
+            // Set the Parent Form of the Child window.  
+            FrmVoucherAltMDIChild.MdiParent = this;
+            // Display the new form.  
+            FrmVoucherAltMDIChild.Show();
+            FrmVoucherAltMDIChild.BringToFront();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,53 +129,38 @@ namespace FINNSOFT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmDaybook fdb = new frmDaybook();
-
-            fdb.Show();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmTrial tr = new frmTrial();
-            tr.Show();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmVoucher vch = new frmVoucher();
-            vch.Show();
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frm_Details_Ledger fdel = new frm_Details_Ledger();
-            fdel.comboBox1.Text = "Only This Ledger";
-            fdel.Show();
+            
         }
 
         private void DashBoardMenu_Load(object sender, EventArgs e)
         {
-            fillChart();
-            
-            
-        }
-
-        private void fillChart()
-        {
-            SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=Sample;Integrated Security=true;");
-            DataSet ds = new DataSet();
-            con.Open();
-            SqlDataAdapter adapt = new SqlDataAdapter("Select Name,Salary from tbl_EmpSalary", con);
-            adapt.Fill(ds);
-            chart1.DataSource = ds;
-            //set the member of the chart data source used to data bind to the X-values of the series  
-            chart1.Series["Salary"].XValueMember = "Name";
-            //set the member columns of the chart data source used to data bind to the X-values of the series  
-            chart1.Series["Salary"].YValueMembers = "Salary";
-            chart1.Titles.Add("Salary Chart");
-            con.Close();
+            FrmGraphs FrmGraphsMDIChild = new FrmGraphs();
+            // Set the Parent Form of the Child window.  
+            FrmGraphsMDIChild.MdiParent = this;
+            // Display the new form.  
+            FrmGraphsMDIChild.Show();
+            FrmGraphsMDIChild.BringToFront();
+            toolStrip1.Visible = false;
 
         }
+
+        
+
         private void DashBoardMenu_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.ToString() == "F1")
@@ -194,6 +183,72 @@ namespace FINNSOFT
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reconcilliateBankStatementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmStmntImport stmnt = new FrmStmntImport();
+            stmnt.Show();
+        }
+
+        private void displayChartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGraphs FrmGraphsMDIChild = new FrmGraphs();
+            // Set the Parent Form of the Child window.  
+            FrmGraphsMDIChild.MdiParent = this;
+            // Display the new form.  
+            FrmGraphsMDIChild.Show();
+            FrmGraphsMDIChild.BringToFront();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            frmDaybook fdb = new frmDaybook();
+
+            fdb.Show();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            frmTrial tr = new frmTrial();
+            tr.Show();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            //frmVoucher vch = new frmVoucher();
+            //vch.Show();
+            FrmVoucherAlt vch2 = new FrmVoucherAlt();
+            vch2.Show();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            frm_Details_Ledger fdel = new frm_Details_Ledger();
+            fdel.comboBox1.Text = "Only This Ledger";
+            fdel.Show();
+        }
+
+        private void DashBoardMenu_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void toolStrip1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (toolStrip1.Bounds.Contains(e.Location) == true)
+            {
+                toolStrip1.Visible = true;
+            }
+            else
+            {
+                toolStrip1.Visible = false;
+            }
+        }
+
+        private void toolStripContainer3_ContentPanel_Load(object sender, EventArgs e)
         {
 
         }
