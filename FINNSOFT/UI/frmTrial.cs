@@ -915,8 +915,13 @@ namespace FINNSOFT
 
         private void bttngridview_Click(object sender, EventArgs e)
         {
-            FrmGridTrial x = new FrmGridTrial();
-            x.Show();
+            metroProgressSpinner1.Visible = true;
+            Cursor.Current = Cursors.WaitCursor;
+            filltable();
+            Cursor.Current = Cursors.Default;
+            metroProgressSpinner1.Visible = false;
+            FrmGridTrial x = new FrmGridTrial(fdt.Value,tdt.Value);
+            x.ShowDialog();
         }
     }
 }
